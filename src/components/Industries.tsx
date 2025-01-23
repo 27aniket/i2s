@@ -2,8 +2,6 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
 } from "@/components/ui/carousel";
 import { Card, CardContent } from "@/components/ui/card";
 
@@ -53,40 +51,36 @@ const Industries = () => {
           opts={{
             align: "start",
             loop: true,
+            dragFree: true,
           }}
-          className="w-full"
+          className="w-full cursor-grab active:cursor-grabbing"
         >
           <CarouselContent className="-ml-2 md:-ml-4">
             {industries.map((industry, index) => (
-              <CarouselItem key={industry.title} className="pl-2 md:pl-4 md:basis-3/4 lg:basis-3/4">
-                <Card className="border-white/10 bg-black/50 overflow-hidden group hover:border-mint-500 transition-all duration-300">
-                  <CardContent className="p-0">
-                    <div className="relative h-48 md:h-64">
+              <CarouselItem key={industry.title} className="pl-2 md:pl-4 md:basis-1/3 lg:basis-[30%]">
+                <Card className="border-white/10 bg-black/50 overflow-hidden group hover:border-mint-500 transition-all duration-300 aspect-[9/16]">
+                  <CardContent className="p-0 h-full">
+                    <div className="relative h-full">
                       <img
-                        src={`https://images.unsplash.com/${industry.image}?auto=format&fit=crop&w=1200&q=80`}
+                        src={`https://images.unsplash.com/${industry.image}?auto=format&fit=crop&w=800&q=80`}
                         alt={industry.title}
                         className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
-                    </div>
-                    <div className="p-6 relative">
-                      <h3 className="text-2xl font-bold mb-3 text-white group-hover:text-mint-500 transition-colors">
-                        {industry.title}
-                      </h3>
-                      <p className="text-gray-300 line-clamp-3">
-                        {industry.description}
-                      </p>
-                      <button className="mt-4 button-secondary">
-                        Learn More
-                      </button>
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent" />
+                      <div className="absolute bottom-0 left-0 right-0 p-6">
+                        <h3 className="text-2xl font-bold mb-3 text-white group-hover:text-mint-500 transition-colors">
+                          {industry.title}
+                        </h3>
+                        <p className="text-gray-300 line-clamp-3">
+                          {industry.description}
+                        </p>
+                      </div>
                     </div>
                   </CardContent>
                 </Card>
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious className="hidden md:flex -left-4 border-white/10 hover:bg-mint-500 hover:border-mint-500" />
-          <CarouselNext className="hidden md:flex -right-4 border-white/10 hover:bg-mint-500 hover:border-mint-500" />
         </Carousel>
       </div>
     </section>
