@@ -49,7 +49,7 @@ const Industries = () => {
           {industries.map((industry) => (
             <div 
               key={industry.title} 
-              className="w-[85vw] sm:w-[60vw] md:w-[45vw] lg:w-[30vw] flex-shrink-0 snap-center"
+              className="w-[85vw] sm:w-[60vw] md:w-[40vw] lg:w-[28vw] flex-shrink-0 snap-center"
             >
               <Card className="border-white/10 bg-black/50 overflow-hidden group hover:border-[#f15a2b] transition-all duration-300 aspect-[9/16] h-full">
                 <CardContent className="p-0 h-full flex flex-col">
