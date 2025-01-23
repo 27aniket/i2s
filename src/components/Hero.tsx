@@ -53,7 +53,7 @@ const Hero = () => {
           </div>
           <p 
             ref={paragraphRef}
-            className="max-w-4xl mx-auto text-lg leading-relaxed transition-colors duration-500 ease-in-out text-[#555555]"
+            className="max-w-4xl mx-auto text-lg md:text-xl lg:text-2xl leading-relaxed transition-colors duration-500 ease-in-out text-[#555555] mt-20"
           >
             We amplify human ingenuity through the power of deep technology. By combining strategic insights with advanced software solutions, we empower businesses to unlock their full potential. Whether it's harnessing AI, modernizing legacy systems, or building future-ready platforms, we focus on enabling innovation that drives meaningful transformation. Together, let's shape a smarter, more connected future.
           </p>

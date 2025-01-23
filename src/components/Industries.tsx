@@ -4,32 +4,32 @@ const industries = [
   {
     title: "Banking",
     description: "Empowering financial institutions with secure and scalable digital platforms designed to streamline operations, enhance customer experiences, and meet evolving regulatory requirements.",
-    image: "photo-1563986768609-322da13575f3" // Modern banking interface
+    image: "photo-1563986768609-322da13575f3"
   },
   {
     title: "Asset Management",
     description: "Specializing in building and optimizing core trading platforms that support critical operations, improve system performance, and ensure reliability.",
-    image: "photo-1642543492481-44e81e3914a7" // Modern trading dashboard
+    image: "photo-1642543492481-44e81e3914a7"
   },
   {
     title: "Insurance",
     description: "Delivering tailored program management and operational support to improve efficiency and drive innovation within the insurance sector.",
-    image: "photo-1556742049-0cfed4f6a45d" // Modern insurance tech
+    image: "photo-1556742049-0cfed4f6a45d"
   },
   {
     title: "Education",
     description: "Designing platforms dedicated to teaching artificial intelligence concepts to students and professionals, delivering an engaging and interactive learning experience.",
-    image: "photo-1523240795612-9a054b0db644" // Modern educational tech
+    image: "photo-1523240795612-9a054b0db644"
   },
   {
     title: "Healthcare",
     description: "Crafting specialized tools and operational support platforms to simplify complex financial and administrative processes in the healthcare sector.",
-    image: "photo-1551076805-e1869033e561" // Modern healthcare tech
+    image: "photo-1551076805-e1869033e561"
   },
   {
     title: "GIS",
     description: "Building advanced geospatial platforms to enable businesses and organizations to manage, analyze, and visualize geographic data effectively.",
-    image: "photo-1527672809634-04ed36500acd" // Modern GIS visualization
+    image: "photo-1527672809634-04ed36500acd"
   }
 ];
 
@@ -42,11 +42,11 @@ const Industries = () => {
       </p>
       
       <div className="mt-12 overflow-x-auto pb-8 no-scrollbar">
-        <div className="flex gap-4 snap-x snap-mandatory touch-pan-x w-full">
+        <div className="flex gap-6 snap-x snap-mandatory touch-pan-x w-full">
           {industries.map((industry) => (
             <div 
               key={industry.title} 
-              className="w-[400px] flex-shrink-0 snap-center"
+              className="w-[300px] md:w-[350px] flex-shrink-0 snap-center"
             >
               <Card className="border-white/10 bg-black/50 overflow-hidden group hover:border-[#f15a2b] transition-all duration-300 aspect-[3/4]">
                 <CardContent className="p-0 h-full flex flex-col">
