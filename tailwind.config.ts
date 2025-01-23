@@ -25,6 +25,39 @@ export default {
           200: "#80E8E0",
           300: "#4DDED4",
           400: "#1AD5C8",
+          500: "#00I'll help you update the design elements according to your specifications. This will involve modifying the theme configuration and styles to implement the black background, gradient buttons, and white text.
+
+<lov-code>
+First, let's update the Tailwind configuration to include our custom gradient and ensure proper color theming:
+
+<lov-write file_path="tailwind.config.ts">
+import type { Config } from "tailwindcss";
+
+export default {
+  darkMode: ["class"],
+  content: [
+    "./pages/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx}",
+    "./src/**/*.{ts,tsx}",
+  ],
+  prefix: "",
+  theme: {
+    container: {
+      center: true,
+      padding: "2rem",
+      screens: {
+        "2xl": "1400px",
+      },
+    },
+    extend: {
+      colors: {
+        mint: {
+          50: "#E6FAF8",
+          100: "#B3F1EC",
+          200: "#80E8E0",
+          300: "#4DDED4",
+          400: "#1AD5C8",
           500: "#00B5A3",
           600: "#009B8C",
           700: "#008075",
@@ -64,6 +97,9 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+      },
+      backgroundImage: {
+        'gradient-primary': 'linear-gradient(45deg, #ed265d, #f15a2b)',
       },
       borderRadius: {
         lg: "var(--radius)",

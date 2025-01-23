@@ -15,11 +15,11 @@ const Navigation = () => {
   ];
 
   return (
-    <nav className="fixed w-full bg-white/80 backdrop-blur-md z-50 border-b">
+    <nav className="fixed w-full bg-black/80 backdrop-blur-md z-50 border-b border-white/10">
       <div className="section-container py-4">
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center space-x-2">
-            <span className="text-2xl font-bold text-mint-500">MintCode</span>
+            <span className="text-2xl font-bold text-white">MintCode</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -43,7 +43,7 @@ const Navigation = () => {
 
           {/* Mobile Navigation Toggle */}
           <button
-            className="md:hidden"
+            className="md:hidden text-white"
             onClick={() => setIsOpen(!isOpen)}
           >
             {isOpen ? (
@@ -56,7 +56,7 @@ const Navigation = () => {
 
         {/* Mobile Navigation Menu */}
         {isOpen && (
-          <div className="md:hidden absolute top-full left-0 right-0 bg-white border-b">
+          <div className="md:hidden absolute top-full left-0 right-0 bg-black border-b border-white/10">
             <div className="flex flex-col space-y-4 p-4">
               {navItems.map((item) => (
                 <Link
