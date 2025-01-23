@@ -18,6 +18,9 @@ export default {
       },
     },
     extend: {
+      spacing: {
+        '160': '40rem',
+      },
       colors: {
         mint: {
           50: "#E6FAF8",
