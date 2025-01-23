@@ -1,9 +1,7 @@
 import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-} from "@/components/ui/carousel";
-import { Card, CardContent } from "@/components/ui/card";
+  Card,
+  CardContent,
+} from "@/components/ui/card";
 
 const industries = [
   {
@@ -46,14 +44,14 @@ const Industries = () => {
         Delivering innovative solutions across diverse sectors, transforming challenges into opportunities.
       </p>
       
-      <div className="mt-12 overflow-x-auto pb-8 no-scrollbar overflow-y-hidden">
-        <div className="flex snap-x snap-mandatory touch-pan-x w-full">
-          {industries.map((industry, index) => (
+      <div className="mt-12 overflow-x-auto pb-8 no-scrollbar">
+        <div className="flex gap-4 snap-x snap-mandatory touch-pan-x w-full">
+          {industries.map((industry) => (
             <div 
               key={industry.title} 
-              className="pl-2 md:pl-4 md:basis-1/3 lg:basis-[30%] snap-center shrink-0"
+              className="w-[85vw] sm:w-[60vw] md:w-[45vw] lg:w-[30vw] flex-shrink-0 snap-center"
             >
-              <Card className="border-white/10 bg-black/50 overflow-hidden group hover:border-[#f15a2b] transition-all duration-300 aspect-[9/16]">
+              <Card className="border-white/10 bg-black/50 overflow-hidden group hover:border-[#f15a2b] transition-all duration-300 aspect-[9/16] h-full">
                 <CardContent className="p-0 h-full flex flex-col">
                   <div className="relative h-1/2">
                     <img
