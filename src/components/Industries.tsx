@@ -3,33 +3,33 @@ import { Card, CardContent } from "@/components/ui/card";
 const industries = [
   {
     title: "Banking",
-    description: "Empowering financial institutions with secure and scalable digital platforms designed to streamline operations, enhance customer experiences, and meet evolving regulatory requirements. From personalized services to efficient backend systems, we focus on enabling seamless and reliable banking solutions.",
-    image: "photo-1601597111158-2fceff292cdc" // Modern banking/fintech image
+    description: "Empowering financial institutions with secure and scalable digital platforms designed to streamline operations, enhance customer experiences, and meet evolving regulatory requirements.",
+    image: "photo-1563986768609-322da13575f3" // Modern banking interface
   },
   {
     title: "Asset Management",
-    description: "Specializing in building and optimizing core trading platforms that support critical operations, improve system performance, and ensure reliability. Our expertise lies in creating robust systems that simplify portfolio management, improve analytics, and drive operational efficiency for asset management firms.",
-    image: "photo-1642543492481-44e81e3914a7" // Trading/investment dashboard image
+    description: "Specializing in building and optimizing core trading platforms that support critical operations, improve system performance, and ensure reliability.",
+    image: "photo-1642543492481-44e81e3914a7" // Modern trading dashboard
   },
   {
     title: "Insurance",
-    description: "Delivering tailored program management and operational support to improve efficiency and drive innovation within the insurance sector. We focus on enabling insurers to modernize their workflows, optimize resources, and adapt to changing market needs with scalable solutions.",
-    image: "photo-1450101499163-c8848c66ca85" // Modern insurance office
+    description: "Delivering tailored program management and operational support to improve efficiency and drive innovation within the insurance sector.",
+    image: "photo-1556742049-0cfed4f6a45d" // Modern insurance tech
   },
   {
     title: "Education",
-    description: "Designing platforms dedicated to teaching artificial intelligence concepts to students and professionals. These platforms are developed to deliver an engaging, interactive, and structured learning experience that equips users with the skills they need to thrive in AI-driven industries.",
-    image: "photo-1509062522246-3755977927d7" // Modern educational tech
+    description: "Designing platforms dedicated to teaching artificial intelligence concepts to students and professionals, delivering an engaging and interactive learning experience.",
+    image: "photo-1523240795612-9a054b0db644" // Modern educational tech
   },
   {
     title: "Healthcare",
-    description: "Crafting specialized tools such as pension calculators and operational support platforms to simplify complex financial and administrative processes in the healthcare sector. Our solutions are designed to enhance efficiency, accuracy, and user accessibility for organizations managing healthcare operations.",
-    image: "photo-1576091160550-2173dba999ef" // Modern healthcare tech
+    description: "Crafting specialized tools and operational support platforms to simplify complex financial and administrative processes in the healthcare sector.",
+    image: "photo-1551076805-e1869033e561" // Modern healthcare tech
   },
   {
     title: "GIS",
-    description: "Building advanced geospatial platforms to enable businesses and organizations to manage, analyze, and visualize geographic data effectively. These solutions empower users with strategic insights for urban planning, logistics, natural resource management, and beyond.",
-    image: "photo-1451187580459-43490279c0fa" // GIS/mapping visualization
+    description: "Building advanced geospatial platforms to enable businesses and organizations to manage, analyze, and visualize geographic data effectively.",
+    image: "photo-1527672809634-04ed36500acd" // Modern GIS visualization
   }
 ];
 
@@ -46,7 +46,7 @@ const Industries = () => {
           {industries.map((industry) => (
             <div 
               key={industry.title} 
-              className="w-[85vw] sm:w-[60vw] md:w-[40vw] lg:w-[28vw] flex-shrink-0 snap-center"
+              className="w-[85vw] sm:w-[45vw] md:w-[35vw] lg:w-[28vw] flex-shrink-0 snap-center"
             >
               <Card className="border-white/10 bg-black/50 overflow-hidden group hover:border-[#f15a2b] transition-all duration-300 aspect-[9/16] h-full">
                 <CardContent className="p-0 h-full flex flex-col">

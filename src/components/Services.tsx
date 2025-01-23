@@ -4,38 +4,32 @@ const services = [
   {
     title: "Innovation Strategy",
     description: "We help businesses define and implement strategies to drive innovation and stay ahead in a competitive market. From identifying emerging trends to evaluating disruptive technologies, we enable organizations to create value through transformative ideas and cutting-edge solutions.",
-    focus: "Focus Areas: Technology adoption, process innovation, and digital transformation.",
-    image: "photo-1451187580459-43490279c0fa"
+    image: "photo-1460925895917-afdab827c52f"
   },
   {
     title: "Product Discovery",
     description: "Our Product Discovery service helps businesses validate ideas, understand user needs, and define the right features for a successful product launch. We conduct market research, competitor analysis, and user interviews to ensure your product aligns with customer expectations and business goals.",
-    focus: "Focus Areas: Market research, user personas, and feature prioritization.",
-    image: "photo-1460925895917-afdab827c52f"
+    image: "photo-1522071820081-009f0129c71c"
   },
   {
     title: "Product Development",
     description: "We specialize in end-to-end product development, turning your ideas into robust, scalable, and user-friendly solutions. Leveraging agile methodologies, we ensure rapid delivery without compromising quality, keeping your business goals at the forefront.",
-    focus: "Focus Areas: Custom software development, MVP creation, and iterative scaling.",
-    image: "photo-1522071820081-009f0129c71c"
+    image: "photo-1522071901873-411886a10004"
   },
   {
     title: "Artificial Intelligence",
     description: "Empowering businesses with AI-driven solutions to automate processes, enhance decision-making, and unlock new opportunities. Our expertise spans machine learning, natural language processing, and computer vision, tailored to solve real-world problems across industries.",
-    focus: "Focus Areas: AI model development, predictive analytics, and intelligent automation.",
     image: "photo-1677442136019-21780ecad995"
   },
   {
     title: "Product Management",
     description: "We provide comprehensive product management services to ensure your products are delivered on time, within budget, and aligned with customer expectations. From roadmaps to release planning, our team ensures every step of the product lifecycle is optimized for success.",
-    focus: "Focus Areas: Roadmap planning, stakeholder alignment, and cross-functional collaboration.",
     image: "photo-1531403009284-440f080d1e12"
   },
   {
     title: "Staff Augmentation",
     description: "Scale your team with top talent and fill critical skill gaps quickly through our staff augmentation services. Whether you need developers, designers, or project managers, we provide skilled professionals who integrate seamlessly with your team and processes.",
-    focus: "Focus Areas: Flexible resourcing, specialized expertise, and cost efficiency.",
-    image: "photo-1522071901873-411886a10004"
+    image: "photo-1553877522-43269d4ea984"
   }
 ];
 
@@ -71,11 +65,8 @@ const Services = () => {
                 <h3 className="text-2xl font-bold mb-4 text-[#f15a2b]">
                   {service.title}
                 </h3>
-                <p className="text-gray-300 mb-4">
+                <p className="text-gray-300">
                   {service.description}
-                </p>
-                <p className="text-[#f15a2b] mt-auto font-medium">
-                  {service.focus}
                 </p>
               </div>
             </CardContent>
