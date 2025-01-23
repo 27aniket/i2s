@@ -53,25 +53,22 @@ const Industries = () => {
               key={industry.title} 
               className="pl-2 md:pl-4 md:basis-1/3 lg:basis-[30%] snap-center shrink-0"
             >
-              <Card className="border-white/10 bg-black/50 overflow-hidden group hover:border-mint-500 transition-all duration-300 aspect-[9/16]">
-                <CardContent className="p-0 h-full">
-                  <div className="relative h-full">
+              <Card className="border-white/10 bg-black/50 overflow-hidden group hover:border-[#f15a2b] transition-all duration-300 aspect-[9/16]">
+                <CardContent className="p-0 h-full flex flex-col">
+                  <div className="relative h-1/2">
                     <img
                       src={`https://images.unsplash.com/${industry.image}?auto=format&fit=crop&w=800&q=80`}
                       alt={industry.title}
                       className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/70 to-transparent" />
-                    <div className="absolute inset-0 flex flex-col justify-end pb-8">
-                      <div className="px-6">
-                        <h3 className="text-2xl font-bold mb-3 text-white group-hover:text-mint-500 transition-colors">
-                          {industry.title}
-                        </h3>
-                        <p className="text-gray-300">
-                          {industry.description}
-                        </p>
-                      </div>
-                    </div>
+                  </div>
+                  <div className="h-1/2 p-6 bg-black/50">
+                    <h3 className="text-2xl font-bold mb-3 text-white group-hover:text-[#f15a2b] transition-colors">
+                      {industry.title}
+                    </h3>
+                    <p className="text-gray-300">
+                      {industry.description}
+                    </p>
                   </div>
                 </CardContent>
               </Card>
