@@ -36,7 +36,7 @@ const services = [
 const Services = () => {
   return (
     <section className="section-container" id="services">
-      <h2 className="section-title bg-gradient-primary inline-block text-transparent bg-clip-text">Our Services</h2>
+      <h2 className="section-title bg-gradient-primary text-transparent bg-clip-text text-center">Our Services</h2>
       <p className="section-subtitle">
         Comprehensive solutions tailored to your business needs
       </p>
@@ -45,7 +45,7 @@ const Services = () => {
         {services.map((service) => (
           <Card 
             key={service.title}
-            className="group relative overflow-hidden border-white/10 bg-black/50 hover:border-[#f15a2b] transition-all duration-300 aspect-[4/3]"
+            className="group relative overflow-hidden border-white/10 bg-black/50 hover:bg-white hover:border-[#f15a2b] transition-all duration-300 aspect-[4/3]"
           >
             <CardContent className="p-0 h-full">
               <div className="absolute inset-0 z-10 transition-transform duration-500 group-hover:-translate-y-full">
@@ -55,17 +55,17 @@ const Services = () => {
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/90 to-transparent">
-                  <h3 className="text-2xl font-bold bg-gradient-primary inline-block text-transparent bg-clip-text">
+                  <h3 className="text-2xl font-bold text-white">
                     {service.title}
                   </h3>
                 </div>
               </div>
               
-              <div className="absolute inset-0 p-6 bg-black/90 flex flex-col opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+              <div className="absolute inset-0 p-6 bg-white flex flex-col opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                 <h3 className="text-2xl font-bold mb-4 bg-gradient-primary inline-block text-transparent bg-clip-text">
                   {service.title}
                 </h3>
-                <p className="text-gray-300">
+                <p className="text-gray-700">
                   {service.description}
                 </p>
               </div>

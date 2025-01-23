@@ -17,12 +17,7 @@ const Navigation = () => {
     <nav className="fixed w-full bg-black/80 backdrop-blur-md z-50 border-b border-white/10">
       <div className="section-container py-4">
         <div className="flex items-center justify-between">
-          <Link to="/" className="flex items-center space-x-2">
-            <img 
-              src="https://images.unsplash.com/photo-1614179924047-e1ab49a0a0cf?auto=format&fit=crop&w=80&h=40&q=80" 
-              alt="MintCode Logo" 
-              className="h-10 w-auto object-contain"
-            />
+          <Link to="/" className="flex items-center">
             <span className="text-2xl font-bold text-white">MintCode</span>
           </Link>
 

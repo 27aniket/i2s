@@ -36,7 +36,7 @@ const industries = [
 const Industries = () => {
   return (
     <section className="section-container" id="industries">
-      <h2 className="section-title bg-gradient-primary inline-block text-transparent bg-clip-text">Industries We Serve</h2>
+      <h2 className="section-title bg-gradient-primary text-transparent bg-clip-text text-center">Industries We Serve</h2>
       <p className="section-subtitle">
         Delivering innovative solutions across diverse sectors, transforming challenges into opportunities.
       </p>
@@ -46,9 +46,9 @@ const Industries = () => {
           {industries.map((industry) => (
             <div 
               key={industry.title} 
-              className="w-[85vw] sm:w-[45vw] md:w-[35vw] lg:w-[28vw] flex-shrink-0 snap-center"
+              className="w-[300px] flex-shrink-0 snap-center"
             >
-              <Card className="border-white/10 bg-black/50 overflow-hidden group hover:border-[#f15a2b] transition-all duration-300 aspect-[9/16] h-full">
+              <Card className="border-white/10 bg-black/50 overflow-hidden group hover:border-[#f15a2b] transition-all duration-300 aspect-[3/4]">
                 <CardContent className="p-0 h-full flex flex-col">
                   <div className="relative h-1/2">
                     <img
