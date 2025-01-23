@@ -46,7 +46,7 @@ const Industries = () => {
           {industries.map((industry) => (
             <div 
               key={industry.title} 
-              className="w-[300px] flex-shrink-0 snap-center"
+              className="w-[400px] flex-shrink-0 snap-center"
             >
               <Card className="border-white/10 bg-black/50 overflow-hidden group hover:border-[#f15a2b] transition-all duration-300 aspect-[3/4]">
                 <CardContent className="p-0 h-full flex flex-col">

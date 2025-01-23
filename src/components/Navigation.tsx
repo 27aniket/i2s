@@ -1,43 +1,50 @@
 import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
-import { Link } from 'react-router-dom';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
 
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+    setIsOpen(false);
+  };
+
   const navItems = [
-    { name: 'Industries', path: '/industries' },
-    { name: 'Services', path: '/services' },
-    { name: 'Case Studies', path: '/case-studies' },
-    { name: 'About', path: '/about' },
-    { name: 'Contact', path: '/contact' },
+    { name: 'Industries', id: 'industries' },
+    { name: 'Services', id: 'services' },
+    { name: 'Case Studies', id: 'case-studies' },
+    { name: 'About', id: 'about' },
+    { name: 'Contact', id: 'contact' },
   ];
 
   return (
     <nav className="fixed w-full bg-black/80 backdrop-blur-md z-50 border-b border-white/10">
       <div className="section-container py-4">
         <div className="flex items-center justify-between">
-          <Link to="/" className="flex items-center">
-            <span className="text-2xl font-bold text-white">MintCode</span>
-          </Link>
+          <span onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="text-2xl font-bold text-white cursor-pointer">
+            MintCode
+          </span>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => (
-              <Link
+              <button
                 key={item.name}
-                to={item.path}
+                onClick={() => scrollToSection(item.id)}
                 className="nav-link relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 hover:after:w-full after:transition-all after:duration-300 after:bg-gradient-primary"
               >
                 {item.name}
-              </Link>
+              </button>
             ))}
-            <Link
-              to="/contact"
+            <button
+              onClick={() => scrollToSection('contact')}
               className="button-primary"
             >
               Get Started
-            </Link>
+            </button>
           </div>
 
           {/* Mobile Navigation Toggle */}
@@ -58,22 +65,20 @@ const Navigation = () => {
           <div className="md:hidden absolute top-full left-0 right-0 bg-black border-b border-white/10">
             <div className="flex flex-col space-y-4 p-4">
               {navItems.map((item) => (
-                <Link
+                <button
                   key={item.name}
-                  to={item.path}
-                  className="nav-link"
-                  onClick={() => setIsOpen(false)}
+                  onClick={() => scrollToSection(item.id)}
+                  className="nav-link text-left"
                 >
                   {item.name}
-                </Link>
+                </button>
               ))}
-              <Link
-                to="/contact"
+              <button
+                onClick={() => scrollToSection('contact')}
                 className="button-primary text-center"
-                onClick={() => setIsOpen(false)}
               >
                 Get Started
-              </Link>
+              </button>
             </div>
           </div>
         )}
