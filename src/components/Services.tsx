@@ -36,7 +36,7 @@ const services = [
 const Services = () => {
   return (
     <section className="section-container" id="services">
-      <h2 className="section-title">Our Services</h2>
+      <h2 className="section-title bg-gradient-primary inline-block text-transparent bg-clip-text">Our Services</h2>
       <p className="section-subtitle">
         Comprehensive solutions tailored to your business needs
       </p>
@@ -55,14 +55,14 @@ const Services = () => {
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/90 to-transparent">
-                  <h3 className="text-2xl font-bold text-white">
+                  <h3 className="text-2xl font-bold bg-gradient-primary inline-block text-transparent bg-clip-text">
                     {service.title}
                   </h3>
                 </div>
               </div>
               
               <div className="absolute inset-0 p-6 bg-black/90 flex flex-col opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                <h3 className="text-2xl font-bold mb-4 text-[#f15a2b]">
+                <h3 className="text-2xl font-bold mb-4 bg-gradient-primary inline-block text-transparent bg-clip-text">
                   {service.title}
                 </h3>
                 <p className="text-gray-300">

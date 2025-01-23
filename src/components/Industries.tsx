@@ -36,7 +36,7 @@ const industries = [
 const Industries = () => {
   return (
     <section className="section-container" id="industries">
-      <h2 className="section-title">Industries We Serve</h2>
+      <h2 className="section-title bg-gradient-primary inline-block text-transparent bg-clip-text">Industries We Serve</h2>
       <p className="section-subtitle">
         Delivering innovative solutions across diverse sectors, transforming challenges into opportunities.
       </p>
@@ -58,7 +58,7 @@ const Industries = () => {
                     />
                   </div>
                   <div className="h-1/2 p-6 bg-black/50">
-                    <h3 className="text-2xl font-bold mb-3 text-white group-hover:text-[#f15a2b] transition-colors">
+                    <h3 className="text-2xl font-bold mb-3 bg-gradient-primary inline-block text-transparent bg-clip-text group-hover:text-[#f15a2b] transition-colors">
                       {industry.title}
                     </h3>
                     <p className="text-gray-300">

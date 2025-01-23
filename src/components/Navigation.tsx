@@ -6,11 +6,10 @@ const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const navItems = [
-    { name: 'Home', path: '/' },
-    { name: 'About', path: '/about' },
     { name: 'Industries', path: '/industries' },
     { name: 'Services', path: '/services' },
     { name: 'Case Studies', path: '/case-studies' },
+    { name: 'About', path: '/about' },
     { name: 'Contact', path: '/contact' },
   ];
 
@@ -19,6 +18,11 @@ const Navigation = () => {
       <div className="section-container py-4">
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center space-x-2">
+            <img 
+              src="https://images.unsplash.com/photo-1614179924047-e1ab49a0a0cf?auto=format&fit=crop&w=80&h=40&q=80" 
+              alt="MintCode Logo" 
+              className="h-10 w-auto object-contain"
+            />
             <span className="text-2xl font-bold text-white">MintCode</span>
           </Link>
 
@@ -28,7 +32,7 @@ const Navigation = () => {
               <Link
                 key={item.name}
                 to={item.path}
-                className="nav-link"
+                className="nav-link relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 hover:after:w-full after:transition-all after:duration-300 after:bg-gradient-primary"
               >
                 {item.name}
               </Link>
