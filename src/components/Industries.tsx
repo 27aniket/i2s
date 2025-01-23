@@ -46,7 +46,7 @@ const Industries = () => {
         Delivering innovative solutions across diverse sectors, transforming challenges into opportunities.
       </p>
       
-      <div className="mt-12">
+      <div className="mt-12 overflow-x-auto pb-8 no-scrollbar">
         <Carousel
           opts={{
             align: "start",
@@ -55,9 +55,12 @@ const Industries = () => {
           }}
           className="w-full cursor-grab active:cursor-grabbing"
         >
-          <CarouselContent className="-ml-2 md:-ml-4">
+          <CarouselContent className="-ml-2 md:-ml-4 flex snap-x snap-mandatory touch-pan-x">
             {industries.map((industry, index) => (
-              <CarouselItem key={industry.title} className="pl-2 md:pl-4 md:basis-1/3 lg:basis-[30%]">
+              <CarouselItem 
+                key={industry.title} 
+                className="pl-2 md:pl-4 md:basis-1/3 lg:basis-[30%] snap-center"
+              >
                 <Card className="border-white/10 bg-black/50 overflow-hidden group hover:border-mint-500 transition-all duration-300 aspect-[9/16]">
                   <CardContent className="p-0 h-full">
                     <div className="relative h-full">
@@ -66,12 +69,12 @@ const Industries = () => {
                         alt={industry.title}
                         className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent" />
-                      <div className="absolute bottom-0 left-0 right-0 p-6">
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/70 to-transparent" />
+                      <div className="absolute inset-0 flex flex-col justify-center p-6">
                         <h3 className="text-2xl font-bold mb-3 text-white group-hover:text-mint-500 transition-colors">
                           {industry.title}
                         </h3>
-                        <p className="text-gray-300 line-clamp-3">
+                        <p className="text-gray-300 line-clamp-4">
                           {industry.description}
                         </p>
                       </div>
