@@ -1,4 +1,5 @@
 import { Card, CardContent } from "@/components/ui/card";
+import { useEffect, useRef, useState } from "react";
 
 const industries = [
   {
@@ -34,10 +35,42 @@ const industries = [
 ];
 
 const Industries = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+  const [opacity, setOpacity] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!sectionRef.current) return;
+
+      const rect = sectionRef.current.getBoundingClientRect();
+      const viewportHeight = window.innerHeight;
+      
+      // Start transition when section is 100vh above the viewport
+      const startTransition = viewportHeight;
+      const endTransition = -viewportHeight / 2;
+      
+      if (rect.top <= startTransition && rect.top >= endTransition) {
+        const progress = (startTransition - rect.top) / (startTransition - endTransition);
+        setOpacity(Math.min(1, Math.max(0, progress)));
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <section className="section-container" id="industries">
+    <section 
+      ref={sectionRef} 
+      className="section-container relative" 
+      id="industries"
+      style={{
+        background: `rgba(255, 255, 255, ${opacity})`,
+        transition: 'background 0.3s ease-in-out'
+      }}
+    >
       <h2 className="section-title bg-gradient-primary text-transparent bg-clip-text text-center">Industries We Serve</h2>
-      <p className="section-subtitle">
+      <p className="section-subtitle" style={{ color: opacity > 0.5 ? '#000' : '#fff' }}>
         Delivering innovative solutions across diverse sectors, transforming challenges into opportunities.
       </p>
       
