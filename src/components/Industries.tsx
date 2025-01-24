@@ -45,11 +45,11 @@ const Industries = () => {
       const rect = sectionRef.current.getBoundingClientRect();
       const viewportHeight = window.innerHeight;
       
-      // Start transition when section is 100vh above the viewport
-      const startTransition = viewportHeight;
-      const endTransition = -viewportHeight / 2;
+      // Start transition when section is 50vh above the viewport for quicker transition
+      const startTransition = viewportHeight / 2;
+      const endTransition = 0; // End transition when section reaches top of viewport
       
-      if (rect.top <= startTransition && rect.top >= endTransition) {
+      if (rect.top <= startTransition) {
         const progress = (startTransition - rect.top) / (startTransition - endTransition);
         setOpacity(Math.min(1, Math.max(0, progress)));
       }
@@ -65,8 +65,8 @@ const Industries = () => {
       className="section-container relative" 
       id="industries"
       style={{
-        background: `rgba(255, 255, 255, ${opacity})`,
-        transition: 'background 0.3s ease-in-out'
+        backgroundColor: `rgb(${255 * opacity}, ${255 * opacity}, ${255 * opacity})`,
+        transition: 'background-color 0.2s ease-in-out'
       }}
     >
       <h2 className="section-title bg-gradient-primary text-transparent bg-clip-text text-center">Industries We Serve</h2>

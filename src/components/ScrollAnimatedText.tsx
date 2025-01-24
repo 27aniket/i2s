@@ -62,8 +62,8 @@ const ScrollAnimatedText = ({ text }: { text: string }) => {
 
       // Calculate progress based on element's position relative to viewport center
       const progress = (viewportCenter - elementTop) / viewportCenter;
-      // Slow down the animation by multiplying progress by 0.25
-      const adjustedProgress = progress * 0.25;
+      // Slow down the animation by multiplying progress by 0.35
+      const adjustedProgress = progress * 0.35;
       const targetWordIndex = Math.floor(adjustedProgress * words.length);
       
       // Determine scroll direction
