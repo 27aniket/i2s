@@ -44,7 +44,7 @@ const Industries = () => {
 
       const rect = sectionRef.current.getBoundingClientRect();
       const viewportHeight = window.innerHeight;
-      const startTransition = viewportHeight / 2;
+      const startTransition = viewportHeight * 0.75; // Changed from 0.5 to 0.75 to start transition later
       
       if (rect.top <= startTransition) {
         setIsWhite(true);
@@ -64,7 +64,7 @@ const Industries = () => {
       id="industries"
       style={{
         backgroundColor: isWhite ? '#ffffff' : '#000000',
-        transition: 'background-color 0.5s ease-in-out',
+        transition: 'background-color 1s ease-in-out', // Changed from 0.5s to 1s
       }}
     >
       <div className="max-w-[2000px] mx-auto px-4 sm:px-6 lg:px-8 py-24">
