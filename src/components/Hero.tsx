@@ -43,8 +43,8 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="min-h-screen flex items-center justify-center bg-black">
-      <div className="section-container">
+    <section className="min-h-screen flex flex-col justify-center bg-black">
+      <div className="section-container mt-32">
         <div className="text-center space-y-8 animate-fade-in">
           <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-white">
             <span className="bg-gradient-primary bg-clip-text text-transparent">Re-Imagine</span>
@@ -63,7 +63,7 @@ const Hero = () => {
           </div>
           <p 
             ref={paragraphRef}
-            className="max-w-4xl mx-auto text-[50px] leading-tight mt-[60rem]"
+            className="max-w-4xl mx-auto text-[50px] leading-tight mt-[40rem]"
           >
             We amplify human ingenuity through the power of deep technology. By combining strategic insights with advanced software solutions, we empower businesses to unlock their full potential. Whether it's harnessing AI, modernizing legacy systems, or building future-ready platforms, we focus on enabling innovation that drives meaningful transformation. Together, let's shape a smarter, more connected future.
           </p>
