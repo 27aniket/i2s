@@ -5,32 +5,32 @@ const industries = [
   {
     title: "Banking",
     description: "Empowering financial institutions with secure and scalable digital platforms designed to streamline operations, enhance customer experiences, and meet evolving regulatory requirements.",
-    image: "photo-1563986768609-322da13575f3"
+    image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=800&q=80"
   },
   {
     title: "Asset Management",
     description: "Specializing in building and optimizing core trading platforms that support critical operations, improve system performance, and ensure reliability.",
-    image: "photo-1642543492481-44e81e3914a7"
+    image: "https://images.unsplash.com/photo-1642543492481-44e81e3914a7?auto=format&fit=crop&w=800&q=80"
   },
   {
     title: "Insurance",
     description: "Delivering tailored program management and operational support to improve efficiency and drive innovation within the insurance sector.",
-    image: "photo-1556742049-0cfed4f6a45d"
+    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=80"
   },
   {
     title: "Education",
     description: "Designing platforms dedicated to teaching artificial intelligence concepts to students and professionals, delivering an engaging and interactive learning experience.",
-    image: "photo-1523240795612-9a054b0db644"
+    image: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800&q=80"
   },
   {
     title: "Healthcare",
     description: "Crafting specialized tools and operational support platforms to simplify complex financial and administrative processes in the healthcare sector.",
-    image: "photo-1551076805-e1869033e561"
+    image: "https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&w=800&q=80"
   },
   {
     title: "GIS",
     description: "Building advanced geospatial platforms to enable businesses and organizations to manage, analyze, and visualize geographic data effectively.",
-    image: "photo-1527672809634-04ed36500acd"
+    image: "https://images.unsplash.com/photo-1527672809634-04ed36500acd?auto=format&fit=crop&w=800&q=80"
   }
 ];
 
@@ -85,7 +85,7 @@ const Industries = () => {
                     <CardContent className="p-0 h-full flex flex-col">
                       <div className="relative h-1/2">
                         <img
-                          src={`https://images.unsplash.com/${industry.image}?auto=format&fit=crop&w=800&q=80`}
+                          src={industry.image}
                           alt={industry.title}
                           className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                         />
