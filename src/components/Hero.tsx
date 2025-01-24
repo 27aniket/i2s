@@ -21,7 +21,7 @@ const Hero = () => {
         });
       },
       {
-        threshold: 0.8, // Increased threshold for slower animation
+        threshold: 0.8,
         rootMargin: '0px',
       }
     );
@@ -46,7 +46,7 @@ const Hero = () => {
     <section className="min-h-screen flex flex-col justify-center bg-black">
       <div className="section-container flex flex-col justify-center min-h-screen">
         <div className="text-center space-y-8 animate-fade-in">
-          <div className="space-y-8 mb-32">
+          <div className="space-y-8 mt-32">
             <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-white">
               <span className="bg-gradient-primary bg-clip-text text-transparent">Re-Imagine</span>
             </h1>
@@ -63,7 +63,7 @@ const Hero = () => {
               </button>
             </div>
           </div>
-          <div className="relative" style={{ marginTop: '80vh' }}>
+          <div className="relative" style={{ marginTop: '40vh' }}>
             <p 
               ref={paragraphRef}
               className="max-w-2xl mx-auto text-[50px] leading-tight"
