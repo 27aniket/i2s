@@ -5,6 +5,7 @@ const Hero = () => {
   const paragraphRef = useRef<HTMLParagraphElement>(null);
   const lastScrollY = useRef(0);
   const currentWordIndex = useRef(0);
+  const isAnimating = useRef(false);
 
   useEffect(() => {
     const paragraph = paragraphRef.current;
@@ -20,7 +21,22 @@ const Hero = () => {
 
     const spans = paragraph.querySelectorAll('span');
     
+    const animateWord = (index: number, highlight: boolean) => {
+      if (index >= 0 && index < spans.length) {
+        const span = spans[index];
+        if (highlight) {
+          span.classList.add('text-white');
+          span.classList.remove('text-[#555555]');
+        } else {
+          span.classList.remove('text-white');
+          span.classList.add('text-[#555555]');
+        }
+      }
+    };
+
     const handleScroll = () => {
+      if (isAnimating.current) return;
+
       const scrollY = window.scrollY;
       const paragraphRect = paragraph.getBoundingClientRect();
       const isVisible = paragraphRect.top < window.innerHeight && paragraphRect.bottom > 0;
@@ -30,23 +46,26 @@ const Hero = () => {
       const scrollingDown = scrollY > lastScrollY.current;
       lastScrollY.current = scrollY;
 
+      isAnimating.current = true;
+
       if (scrollingDown) {
         // Highlight next word when scrolling down
         if (currentWordIndex.current < spans.length) {
-          const span = spans[currentWordIndex.current];
-          span.classList.add('text-white');
-          span.classList.remove('text-[#555555]');
+          animateWord(currentWordIndex.current, true);
           currentWordIndex.current++;
         }
       } else {
         // Fade previous word when scrolling up
         if (currentWordIndex.current > 0) {
           currentWordIndex.current--;
-          const span = spans[currentWordIndex.current];
-          span.classList.remove('text-white');
-          span.classList.add('text-[#555555]');
+          animateWord(currentWordIndex.current, false);
         }
       }
+
+      // Add delay before allowing next animation
+      setTimeout(() => {
+        isAnimating.current = false;
+      }, 150); // 150ms delay between word animations
     };
 
     window.addEventListener('scroll', handleScroll);
