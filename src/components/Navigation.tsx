@@ -1,88 +1,70 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
+import { useMobile } from '@/hooks/use-mobile';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const isMobile = useMobile();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 0);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
+      setIsOpen(false);
     }
-    setIsOpen(false);
   };
 
-  const navItems = [
-    { name: 'Industries', id: 'industries' },
-    { name: 'Services', id: 'services' },
-    { name: 'Case Studies', id: 'case-studies' },
-    { name: 'About', id: 'about' },
-    { name: 'Contact', id: 'contact' },
-  ];
-
   return (
-    <nav className="fixed w-full bg-black/80 backdrop-blur-md z-50 border-b border-white/10">
-      <div className="section-container py-4">
-        <div className="flex items-center justify-between">
-          <span onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="text-2xl font-bold text-white cursor-pointer">
-            MintCode
-          </span>
-
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            {navItems.map((item) => (
-              <button
-                key={item.name}
-                onClick={() => scrollToSection(item.id)}
-                className="nav-link relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 hover:after:w-full after:transition-all after:duration-300 after:bg-gradient-primary"
-              >
-                {item.name}
-              </button>
-            ))}
-            <button
-              onClick={() => scrollToSection('contact')}
-              className="button-primary"
-            >
-              Get Started
-            </button>
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-black/80 backdrop-blur-md' : ''}`}>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16">
+          <div className="flex-shrink-0">
+            <span className="text-2xl font-bold text-white">I2S</span>
           </div>
-
-          {/* Mobile Navigation Toggle */}
-          <button
-            className="md:hidden text-white"
-            onClick={() => setIsOpen(!isOpen)}
-          >
-            {isOpen ? (
-              <X className="h-6 w-6" />
-            ) : (
-              <Menu className="h-6 w-6" />
-            )}
-          </button>
-        </div>
-
-        {/* Mobile Navigation Menu */}
-        {isOpen && (
-          <div className="md:hidden absolute top-full left-0 right-0 bg-black border-b border-white/10">
-            <div className="flex flex-col space-y-4 p-4">
-              {navItems.map((item) => (
-                <button
-                  key={item.name}
-                  onClick={() => scrollToSection(item.id)}
-                  className="nav-link text-left"
-                >
-                  {item.name}
-                </button>
-              ))}
-              <button
-                onClick={() => scrollToSection('contact')}
-                className="button-primary text-center"
-              >
+          
+          {isMobile ? (
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="text-white focus:outline-none"
+            >
+              {isOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          ) : (
+            <div className="flex items-center space-x-8">
+              <button onClick={() => scrollToSection('industries')} className="nav-link">Industries</button>
+              <button onClick={() => scrollToSection('services')} className="nav-link">Services</button>
+              <button onClick={() => scrollToSection('case-studies')} className="nav-link">Case Studies</button>
+              <button onClick={() => scrollToSection('about')} className="nav-link">About</button>
+              <button onClick={() => scrollToSection('contact')} className="nav-link">Contact</button>
+              <button onClick={() => scrollToSection('contact')} className="button-primary">
                 Get Started
               </button>
             </div>
-          </div>
-        )}
+          )}
+        </div>
       </div>
+
+      {isMobile && isOpen && (
+        <div className="px-2 pt-2 pb-3 space-y-1 bg-black/80 backdrop-blur-md">
+          <button onClick={() => scrollToSection('industries')} className="nav-link block px-3 py-2 w-full text-left">Industries</button>
+          <button onClick={() => scrollToSection('services')} className="nav-link block px-3 py-2 w-full text-left">Services</button>
+          <button onClick={() => scrollToSection('case-studies')} className="nav-link block px-3 py-2 w-full text-left">Case Studies</button>
+          <button onClick={() => scrollToSection('about')} className="nav-link block px-3 py-2 w-full text-left">About</button>
+          <button onClick={() => scrollToSection('contact')} className="nav-link block px-3 py-2 w-full text-left">Contact</button>
+          <button onClick={() => scrollToSection('contact')} className="button-primary w-full mt-4">
+            Get Started
+          </button>
+        </div>
+      )}
     </nav>
   );
 };

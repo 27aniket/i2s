@@ -2,9 +2,9 @@ import { ArrowRight } from 'lucide-react';
 
 const HeroContent = () => {
   return (
-    <div className="space-y-8 mt-[30vh]">
+    <div className="space-y-8 mt-[25vh]">
       <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-white">
-        <span className="bg-gradient-primary bg-clip-text text-transparent">Re-imagined</span>
+        <span className="bg-gradient-primary bg-clip-text text-transparent">Intent to Solutions</span>
       </h1>
       <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto">
         Reimagining human potential through Deep Tech
