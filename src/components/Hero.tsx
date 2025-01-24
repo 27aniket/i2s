@@ -8,36 +8,35 @@ const Hero = () => {
     const paragraph = paragraphRef.current;
     if (!paragraph) return;
 
+    // Split the text into individual words
+    const words = paragraph.textContent?.split(' ') || [];
+    
+    // Create spans for each word with initial gray color
+    paragraph.innerHTML = words
+      .map((word, index) => `<span class="inline-block transition-colors duration-1000 ease-in-out text-[#555555]" style="transition-delay: ${index * 200}ms">${word}</span>`)
+      .join(' ');
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('text-white');
-            entry.target.classList.remove('text-[#555555]');
-          } else {
-            entry.target.classList.remove('text-white');
-            entry.target.classList.add('text-[#555555]');
+            const spans = paragraph.querySelectorAll('span');
+            spans.forEach((span, index) => {
+              setTimeout(() => {
+                span.classList.add('text-white');
+                span.classList.remove('text-[#555555]');
+              }, index * 200); // Add delay between each word
+            });
           }
         });
       },
       {
-        threshold: 0.8,
+        threshold: 0.5,
         rootMargin: '0px',
       }
     );
 
-    // Split the text into individual words
-    const words = paragraph.textContent?.split(' ') || [];
-
-    // Create spans for each word with slower transition
-    paragraph.innerHTML = words
-      .map(word => `<span class="inline-block transition-colors duration-1000 ease-in-out text-[#555555]">${word}</span>`)
-      .join(' ');
-
-    // Observe each word span
-    paragraph.querySelectorAll('span').forEach(span => {
-      observer.observe(span);
-    });
+    observer.observe(paragraph);
 
     return () => observer.disconnect();
   }, []);
@@ -46,9 +45,9 @@ const Hero = () => {
     <section className="min-h-screen flex flex-col justify-center bg-black">
       <div className="section-container flex flex-col justify-center min-h-screen">
         <div className="text-center space-y-8 animate-fade-in">
-          <div className="space-y-8 mt-32">
+          <div className="space-y-8 mt-[40vh]">
             <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-white">
-              <span className="bg-gradient-primary bg-clip-text text-transparent">Re-Imagine</span>
+              <span className="bg-gradient-primary bg-clip-text text-transparent">Re-imagined</span>
             </h1>
             <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto">
               Reimagining human potential through Deep Tech
