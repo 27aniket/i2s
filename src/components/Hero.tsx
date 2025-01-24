@@ -44,29 +44,33 @@ const Hero = () => {
 
   return (
     <section className="min-h-screen flex flex-col justify-center bg-black">
-      <div className="section-container mt-32">
+      <div className="section-container flex flex-col justify-center min-h-screen">
         <div className="text-center space-y-8 animate-fade-in">
-          <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-white">
-            <span className="bg-gradient-primary bg-clip-text text-transparent">Re-Imagine</span>
-          </h1>
-          <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto">
-            Reimagining human potential through Deep Tech
-          </p>
-          <div className="flex items-center justify-center space-x-4">
-            <button onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })} className="button-primary">
-              Get Started
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </button>
-            <button onClick={() => document.getElementById('case-studies')?.scrollIntoView({ behavior: 'smooth' })} className="button-secondary">
-              View Our Work
-            </button>
+          <div className="space-y-8 mb-32">
+            <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-white">
+              <span className="bg-gradient-primary bg-clip-text text-transparent">Re-Imagine</span>
+            </h1>
+            <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto">
+              Reimagining human potential through Deep Tech
+            </p>
+            <div className="flex items-center justify-center space-x-4">
+              <button onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })} className="button-primary">
+                Get Started
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </button>
+              <button onClick={() => document.getElementById('case-studies')?.scrollIntoView({ behavior: 'smooth' })} className="button-secondary">
+                View Our Work
+              </button>
+            </div>
           </div>
-          <p 
-            ref={paragraphRef}
-            className="max-w-2xl mx-auto text-[50px] leading-tight mt-[160rem]"
-          >
-            We amplify human ingenuity through the power of deep technology. By combining strategic insights with advanced software solutions, we empower businesses to unlock their full potential. Whether it's harnessing AI, modernizing legacy systems, or building future-ready platforms, we focus on enabling innovation that drives meaningful transformation. Together, let's shape a smarter, more connected future.
-          </p>
+          <div className="relative" style={{ marginTop: '80vh' }}>
+            <p 
+              ref={paragraphRef}
+              className="max-w-2xl mx-auto text-[50px] leading-tight"
+            >
+              We amplify human ingenuity through the power of deep technology. By combining strategic insights with advanced software solutions, we empower businesses to unlock their full potential. Whether it's harnessing AI, modernizing legacy systems, or building future-ready platforms, we focus on enabling innovation that drives meaningful transformation. Together, let's shape a smarter, more connected future.
+            </p>
+          </div>
         </div>
       </div>
     </section>
