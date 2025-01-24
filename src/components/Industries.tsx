@@ -66,11 +66,11 @@ const Industries = () => {
       id="industries"
       style={{
         backgroundColor: `rgb(${255 * opacity}, ${255 * opacity}, ${255 * opacity})`,
-        transition: 'background-color 0.2s ease-in-out'
+        transition: 'background-color 0.15s ease-in-out'
       }}
     >
       <h2 className="section-title bg-gradient-primary text-transparent bg-clip-text text-center">Industries We Serve</h2>
-      <p className="section-subtitle" style={{ color: opacity > 0.5 ? '#000' : '#fff' }}>
+      <p className="section-subtitle" style={{ color: opacity > 0.5 ? '#333333' : '#fff' }}>
         Delivering innovative solutions across diverse sectors, transforming challenges into opportunities.
       </p>
       
