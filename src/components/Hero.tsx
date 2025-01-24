@@ -3,6 +3,8 @@ import { useEffect, useRef } from 'react';
 
 const Hero = () => {
   const paragraphRef = useRef<HTMLParagraphElement>(null);
+  const lastScrollY = useRef(0);
+  const currentWordIndex = useRef(0);
 
   useEffect(() => {
     const paragraph = paragraphRef.current;
@@ -13,39 +15,49 @@ const Hero = () => {
     
     // Create spans for each word with initial gray color
     paragraph.innerHTML = words
-      .map((word, index) => `<span class="inline-block transition-colors duration-1000 ease-in-out text-[#555555]" style="transition-delay: ${index * 100}ms">${word}</span>`)
+      .map((word, index) => `<span class="inline-block transition-colors duration-300 ease-in-out text-[#555555]" data-index="${index}">${word}</span>`)
       .join(' ');
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const spans = paragraph.querySelectorAll('span');
-            spans.forEach((span, index) => {
-              setTimeout(() => {
-                span.classList.add('text-white');
-                span.classList.remove('text-[#555555]');
-              }, index * 100); // Reduced delay for faster animation
-            });
-          }
-        });
-      },
-      {
-        threshold: 0.1, // Trigger animation earlier
-        rootMargin: '50px', // Start animation before the element is fully in view
+    const spans = paragraph.querySelectorAll('span');
+    
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      const paragraphRect = paragraph.getBoundingClientRect();
+      const isVisible = paragraphRect.top < window.innerHeight && paragraphRect.bottom > 0;
+      
+      if (!isVisible) return;
+
+      const scrollingDown = scrollY > lastScrollY.current;
+      lastScrollY.current = scrollY;
+
+      if (scrollingDown) {
+        // Highlight next word when scrolling down
+        if (currentWordIndex.current < spans.length) {
+          const span = spans[currentWordIndex.current];
+          span.classList.add('text-white');
+          span.classList.remove('text-[#555555]');
+          currentWordIndex.current++;
+        }
+      } else {
+        // Fade previous word when scrolling up
+        if (currentWordIndex.current > 0) {
+          currentWordIndex.current--;
+          const span = spans[currentWordIndex.current];
+          span.classList.remove('text-white');
+          span.classList.add('text-[#555555]');
+        }
       }
-    );
+    };
 
-    observer.observe(paragraph);
-
-    return () => observer.disconnect();
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
     <section className="min-h-screen flex flex-col justify-center bg-black">
       <div className="section-container flex flex-col justify-center min-h-screen">
         <div className="text-center space-y-8 animate-fade-in">
-          <div className="space-y-8 mt-[30vh]"> {/* Adjusted from 40vh to 30vh */}
+          <div className="space-y-8 mt-[30vh]">
             <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-white">
               <span className="bg-gradient-primary bg-clip-text text-transparent">Re-imagined</span>
             </h1>
