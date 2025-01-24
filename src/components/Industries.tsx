@@ -64,14 +64,15 @@ const Industries = () => {
       id="industries"
       style={{
         backgroundColor: isWhite ? '#ffffff' : '#000000',
-        transition: 'background-color 0.15s ease-in-out',
+        transition: 'background-color 0.5s ease-in-out', // Increased from 0.15s to 0.5s
         marginLeft: 'calc(-50vw + 50%)',
-        marginRight: 'calc(-50vw + 50%)'
+        marginRight: 'calc(-50vw + 50%)',
+        width: '100vw'
       }}
     >
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-7xl mx-auto px-4">
         <h2 className="section-title bg-gradient-primary text-transparent bg-clip-text text-center">Industries We Serve</h2>
-        <p className="section-subtitle" style={{ color: isWhite ? '#333333' : '#ffffff' }}>
+        <p className="section-subtitle" style={{ color: isWhite ? '#666666' : '#ffffff' }}>
           Delivering innovative solutions across diverse sectors, transforming challenges into opportunities.
         </p>
         

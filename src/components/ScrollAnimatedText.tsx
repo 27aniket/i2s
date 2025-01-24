@@ -10,10 +10,8 @@ const ScrollAnimatedText = ({ text }: { text: string }) => {
     const paragraph = paragraphRef.current;
     if (!paragraph) return;
 
-    // Split the text into individual words
     const words = text.split(' ');
     
-    // Create spans for each word with initial gray color
     paragraph.innerHTML = words
       .map((word, index) => `<span class="inline-block transition-colors duration-300 ease-in-out text-[#555555]" data-index="${index}">${word}</span>`)
       .join(' ');
@@ -42,7 +40,6 @@ const ScrollAnimatedText = ({ text }: { text: string }) => {
       const elementTop = paragraphRect.top;
       const viewportCenter = windowHeight / 2;
       
-      // If element hasn't reached center yet, reset animation
       if (elementTop > viewportCenter) {
         spans.forEach((_, i) => animateWord(i, false));
         currentWordIndex.current = 0;
@@ -51,7 +48,6 @@ const ScrollAnimatedText = ({ text }: { text: string }) => {
         return;
       }
       
-      // If element has passed completely below center, highlight all
       if (elementTop < -paragraphRect.height) {
         spans.forEach((_, i) => animateWord(i, true));
         currentWordIndex.current = spans.length;
@@ -60,16 +56,12 @@ const ScrollAnimatedText = ({ text }: { text: string }) => {
         return;
       }
 
-      // Calculate progress based on element's position relative to viewport center
       const progress = (viewportCenter - elementTop) / viewportCenter;
-      // Slow down the animation by multiplying progress by 0.35
-      const adjustedProgress = progress * 0.35;
+      const adjustedProgress = progress * 0.4; // Changed from 0.35 to 0.4
       const targetWordIndex = Math.floor(adjustedProgress * words.length);
       
-      // Determine scroll direction
       const scrollingDown = scrollY > lastScrollY.current;
       
-      // Update animation based on scroll direction
       if (scrollingDown) {
         while (currentWordIndex.current < targetWordIndex && currentWordIndex.current < words.length) {
           animateWord(currentWordIndex.current, true);
