@@ -2,7 +2,7 @@ import HeroContent from './HeroContent';
 import ScrollAnimatedText from './ScrollAnimatedText';
 
 const Hero = () => {
-  const animatedText = "We bridge the gap between policy, process, and people. With a deep commitment to fostering impactful change, we enable governments, organizations, and communities to embrace digital transformation that drives measurable outcomes. Our unique approach integrates cutting-edge AI, innovative processes, and forward-thinking strategies to revolutionize governance, empower stakeholders, and shape a smarter, more connected future.";
+  const animatedText = "Our unique approach integrates cutting-edge AI, innovative processes, and forward-thinking strategies to revolutionize governance, empower stakeholders, and shape a smarter, more connected future. Join us in our journey to create inclusive and innovative ecosystems that empower communities and pave the way for sustainable development.";
 
   return (
     <section className="min-h-screen flex flex-col justify-center bg-black">
