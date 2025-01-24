@@ -36,7 +36,7 @@ const industries = [
 
 const Industries = () => {
   const sectionRef = useRef<HTMLElement>(null);
-  const [opacity, setOpacity] = useState(0);
+  const [isWhite, setIsWhite] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -44,14 +44,12 @@ const Industries = () => {
 
       const rect = sectionRef.current.getBoundingClientRect();
       const viewportHeight = window.innerHeight;
-      
-      // Start transition when section is 50vh above the viewport for quicker transition
       const startTransition = viewportHeight / 2;
-      const endTransition = 0; // End transition when section reaches top of viewport
       
       if (rect.top <= startTransition) {
-        const progress = (startTransition - rect.top) / (startTransition - endTransition);
-        setOpacity(Math.min(1, Math.max(0, progress)));
+        setIsWhite(true);
+      } else {
+        setIsWhite(false);
       }
     };
 
@@ -62,46 +60,50 @@ const Industries = () => {
   return (
     <section 
       ref={sectionRef} 
-      className="section-container relative" 
+      className="section-container relative w-screen" 
       id="industries"
       style={{
-        backgroundColor: `rgb(${255 * opacity}, ${255 * opacity}, ${255 * opacity})`,
-        transition: 'background-color 0.15s ease-in-out'
+        backgroundColor: isWhite ? '#ffffff' : '#000000',
+        transition: 'background-color 0.15s ease-in-out',
+        marginLeft: 'calc(-50vw + 50%)',
+        marginRight: 'calc(-50vw + 50%)'
       }}
     >
-      <h2 className="section-title bg-gradient-primary text-transparent bg-clip-text text-center">Industries We Serve</h2>
-      <p className="section-subtitle" style={{ color: opacity > 0.5 ? '#333333' : '#fff' }}>
-        Delivering innovative solutions across diverse sectors, transforming challenges into opportunities.
-      </p>
-      
-      <div className="mt-12 overflow-x-auto pb-8 no-scrollbar">
-        <div className="flex gap-6 snap-x snap-mandatory touch-pan-x w-full">
-          {industries.map((industry) => (
-            <div 
-              key={industry.title} 
-              className="w-[300px] md:w-[350px] flex-shrink-0 snap-center"
-            >
-              <Card className="border-white/10 bg-black/50 overflow-hidden group hover:border-[#f15a2b] transition-all duration-300 aspect-[3/4]">
-                <CardContent className="p-0 h-full flex flex-col">
-                  <div className="relative h-1/2">
-                    <img
-                      src={`https://images.unsplash.com/${industry.image}?auto=format&fit=crop&w=800&q=80`}
-                      alt={industry.title}
-                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                    />
-                  </div>
-                  <div className="h-1/2 p-6 bg-black/50">
-                    <h3 className="text-2xl font-bold mb-3 bg-gradient-primary inline-block text-transparent bg-clip-text group-hover:text-[#f15a2b] transition-colors">
-                      {industry.title}
-                    </h3>
-                    <p className="text-gray-300">
-                      {industry.description}
-                    </p>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
-          ))}
+      <div className="max-w-7xl mx-auto">
+        <h2 className="section-title bg-gradient-primary text-transparent bg-clip-text text-center">Industries We Serve</h2>
+        <p className="section-subtitle" style={{ color: isWhite ? '#333333' : '#ffffff' }}>
+          Delivering innovative solutions across diverse sectors, transforming challenges into opportunities.
+        </p>
+        
+        <div className="mt-12 overflow-x-auto pb-8 no-scrollbar">
+          <div className="flex gap-6 snap-x snap-mandatory touch-pan-x w-full">
+            {industries.map((industry) => (
+              <div 
+                key={industry.title} 
+                className="w-[300px] md:w-[350px] flex-shrink-0 snap-center"
+              >
+                <Card className="border-white/10 bg-black/50 overflow-hidden group hover:border-[#f15a2b] transition-all duration-300 aspect-[3/4]">
+                  <CardContent className="p-0 h-full flex flex-col">
+                    <div className="relative h-1/2">
+                      <img
+                        src={`https://images.unsplash.com/${industry.image}?auto=format&fit=crop&w=800&q=80`}
+                        alt={industry.title}
+                        className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                      />
+                    </div>
+                    <div className="h-1/2 p-6 bg-black">
+                      <h3 className="text-2xl font-bold mb-3 bg-gradient-primary inline-block text-transparent bg-clip-text group-hover:text-[#f15a2b] transition-colors">
+                        {industry.title}
+                      </h3>
+                      <p className="text-gray-300">
+                        {industry.description}
+                      </p>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
