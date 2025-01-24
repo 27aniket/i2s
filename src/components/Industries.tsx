@@ -60,24 +60,21 @@ const Industries = () => {
   return (
     <section 
       ref={sectionRef} 
-      className="section-container relative w-screen" 
+      className="relative w-full" 
       id="industries"
       style={{
         backgroundColor: isWhite ? '#ffffff' : '#000000',
         transition: 'background-color 0.5s ease-in-out',
-        marginLeft: 'calc(-50vw + 50%)',
-        marginRight: 'calc(-50vw + 50%)',
-        width: '100vw'
       }}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[2000px] mx-auto px-4 sm:px-6 lg:px-8 py-24">
         <h2 className="section-title bg-gradient-primary text-transparent bg-clip-text text-center">Industries We Serve</h2>
         <p className="section-subtitle" style={{ color: isWhite ? '#666666' : '#ffffff' }}>
           Delivering innovative solutions across diverse sectors, transforming challenges into opportunities.
         </p>
         
         <div className="mt-12 overflow-x-auto pb-8 no-scrollbar">
-          <div className="flex gap-6 snap-x snap-mandatory touch-pan-x min-w-full justify-center lg:justify-start xl:justify-center">
+          <div className="flex gap-6 snap-x snap-mandatory touch-pan-x w-full justify-center">
             {industries.map((industry) => (
               <div 
                 key={industry.title} 
