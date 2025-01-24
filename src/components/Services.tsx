@@ -41,11 +41,11 @@ const Services = () => {
         Comprehensive solutions tailored to your business needs
       </p>
       
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-12">
         {services.map((service) => (
           <Card 
             key={service.title}
-            className="group relative overflow-hidden border-white/10 hover:border-[#f15a2b] bg-black/50 hover:bg-white transition-all duration-300 rounded-none aspect-[3/4] w-[350px] mx-auto"
+            className="group relative overflow-hidden border-white/10 hover:border-[#f15a2b] bg-black/50 hover:bg-white transition-all duration-300 rounded-none aspect-[3/4] w-[262px] mx-auto"
           >
             <CardContent className="p-0 h-full">
               <div className="absolute inset-0 z-10 transition-transform duration-500 group-hover:-translate-y-full">
