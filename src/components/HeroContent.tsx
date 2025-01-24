@@ -2,13 +2,15 @@ import { ArrowRight } from 'lucide-react';
 
 const HeroContent = () => {
   return (
-    <div className="space-y-8 mt-[25vh]">
-      <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-white">
-        <span className="bg-gradient-primary bg-clip-text text-transparent">Intent to Solutions</span>
-      </h1>
-      <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto">
-        Reimagining human potential through Deep Tech
-      </p>
+    <div className="space-y-12 mt-[25vh]">
+      <div className="space-y-8">
+        <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-white">
+          <span className="bg-gradient-primary bg-clip-text text-transparent">Transforming Vision into Action</span>
+        </h1>
+        <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto">
+          We bridge the gap between policy, process, and people. With a deep commitment to fostering impactful change, we enable governments, organizations, and communities to embrace digital transformation that drives measurable outcomes. Our unique approach integrates cutting-edge AI, innovative processes, and forward-thinking strategies to revolutionize governance, empower stakeholders, and shape a smarter, more connected future.
+        </p>
+      </div>
       <div className="flex items-center justify-center space-x-4">
         <button onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })} className="button-primary">
           Get Started
