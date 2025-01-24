@@ -39,27 +39,35 @@ const ScrollAnimatedText = ({ text }: { text: string }) => {
       const scrollY = window.scrollY;
       
       const paragraphRect = paragraph.getBoundingClientRect();
-      const isVisible = paragraphRect.top < window.innerHeight && paragraphRect.bottom > 0;
+      const windowHeight = window.innerHeight;
+      const elementCenter = paragraphRect.top + (paragraphRect.height / 2);
+      const viewportCenter = windowHeight / 2;
       
-      // If paragraph is not visible, reset or complete the animation
-      if (!isVisible) {
-        if (paragraphRect.bottom <= 0) {
-          // If scrolled past, highlight all words
-          spans.forEach((_, i) => animateWord(i, true));
-          currentWordIndex.current = spans.length;
-        } else if (paragraphRect.top >= window.innerHeight) {
-          // If not scrolled to yet, reset all words
-          spans.forEach((_, i) => animateWord(i, false));
-          currentWordIndex.current = 0;
-        }
+      // Check if the element's center is near the viewport center
+      const isNearCenter = Math.abs(elementCenter - viewportCenter) < windowHeight * 0.1; // 10% threshold
+      const hasCrossedCenter = elementCenter <= viewportCenter;
+      
+      // If element hasn't reached center yet, reset animation
+      if (!hasCrossedCenter) {
+        spans.forEach((_, i) => animateWord(i, false));
+        currentWordIndex.current = 0;
+        lastScrollY.current = scrollY;
+        lastScrollTime.current = currentTime;
+        return;
+      }
+      
+      // If element has passed completely below center, highlight all
+      if (elementCenter > windowHeight) {
+        spans.forEach((_, i) => animateWord(i, true));
+        currentWordIndex.current = spans.length;
         lastScrollY.current = scrollY;
         lastScrollTime.current = currentTime;
         return;
       }
 
-      // Calculate visibility percentage
-      const visibilityPercentage = 1 - (paragraphRect.top / window.innerHeight);
-      const targetWordIndex = Math.floor(visibilityPercentage * words.length);
+      // Calculate progress based on center position
+      const progressFromCenter = (viewportCenter - elementCenter) / (viewportCenter);
+      const targetWordIndex = Math.floor(progressFromCenter * words.length);
       
       // Determine scroll direction
       const scrollingDown = scrollY > lastScrollY.current;
