@@ -46,7 +46,7 @@ const ScrollAnimatedText = ({ text }: { text: string }) => {
       const paragraphRect = paragraph.getBoundingClientRect();
       const windowHeight = window.innerHeight;
       const elementTop = paragraphRect.top;
-      const viewportCenter = windowHeight / 5; // Updated to 5 as requested
+      const viewportCenter = windowHeight / 2; // Changed to trigger at viewport center
       
       if (elementTop > viewportCenter) {
         spans.forEach((_, i) => animateWord(i, false));
