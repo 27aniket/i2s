@@ -77,7 +77,17 @@
   }
 
   .nav-link {
-    @apply text-base font-medium text-white/80 hover:text-white transition-colors;
+    @apply text-base font-medium text-white/80 hover:text-white transition-colors relative;
+  }
+
+  .nav-link::after {
+    content: '';
+    @apply absolute left-0 right-0 bottom-[-2px] h-[2px] bg-gradient-primary scale-x-0 transition-transform duration-200 origin-center;
+  }
+
+  .nav-link:hover::after,
+  .nav-link:focus::after {
+    @apply scale-x-100;
   }
 }
 
@@ -110,3 +120,4 @@
     transform: translateY(0);
   }
 }
+

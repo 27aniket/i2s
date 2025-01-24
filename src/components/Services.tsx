@@ -45,7 +45,7 @@ const Services = () => {
         {services.map((service) => (
           <Card 
             key={service.title}
-            className="group relative overflow-hidden border-white/10 bg-black/50 hover:bg-white transition-all duration-300 rounded-none aspect-[3/4] w-[350px] mx-auto"
+            className="group relative overflow-hidden border-white/10 hover:border-[#f15a2b] bg-black/50 hover:bg-white transition-all duration-300 rounded-none aspect-[3/4] w-[350px] mx-auto"
           >
             <CardContent className="p-0 h-full">
               <div className="absolute inset-0 z-10 transition-transform duration-500 group-hover:-translate-y-full">
