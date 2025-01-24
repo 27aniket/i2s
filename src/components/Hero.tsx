@@ -13,7 +13,7 @@ const Hero = () => {
     
     // Create spans for each word with initial gray color
     paragraph.innerHTML = words
-      .map((word, index) => `<span class="inline-block transition-colors duration-1000 ease-in-out text-[#555555]" style="transition-delay: ${index * 200}ms">${word}</span>`)
+      .map((word, index) => `<span class="inline-block transition-colors duration-1000 ease-in-out text-[#555555]" style="transition-delay: ${index * 100}ms">${word}</span>`)
       .join(' ');
 
     const observer = new IntersectionObserver(
@@ -25,14 +25,14 @@ const Hero = () => {
               setTimeout(() => {
                 span.classList.add('text-white');
                 span.classList.remove('text-[#555555]');
-              }, index * 200); // Add delay between each word
+              }, index * 100); // Reduced delay for faster animation
             });
           }
         });
       },
       {
-        threshold: 0.5,
-        rootMargin: '0px',
+        threshold: 0.1, // Trigger animation earlier
+        rootMargin: '50px', // Start animation before the element is fully in view
       }
     );
 
@@ -45,7 +45,7 @@ const Hero = () => {
     <section className="min-h-screen flex flex-col justify-center bg-black">
       <div className="section-container flex flex-col justify-center min-h-screen">
         <div className="text-center space-y-8 animate-fade-in">
-          <div className="space-y-8 mt-[40vh]">
+          <div className="space-y-8 mt-[30vh]"> {/* Adjusted from 40vh to 30vh */}
             <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-white">
               <span className="bg-gradient-primary bg-clip-text text-transparent">Re-imagined</span>
             </h1>
