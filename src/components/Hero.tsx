@@ -21,7 +21,7 @@ const Hero = () => {
         });
       },
       {
-        threshold: 0.5,
+        threshold: 0.8, // Increased threshold for slower animation
         rootMargin: '0px',
       }
     );
@@ -29,9 +29,9 @@ const Hero = () => {
     // Split the text into individual words
     const words = paragraph.textContent?.split(' ') || [];
 
-    // Create spans for each word
+    // Create spans for each word with slower transition
     paragraph.innerHTML = words
-      .map(word => `<span class="inline-block transition-colors duration-500 ease-in-out text-[#555555]">${word}</span>`)
+      .map(word => `<span class="inline-block transition-colors duration-1000 ease-in-out text-[#555555]">${word}</span>`)
       .join(' ');
 
     // Observe each word span
@@ -63,7 +63,7 @@ const Hero = () => {
           </div>
           <p 
             ref={paragraphRef}
-            className="max-w-4xl mx-auto text-[50px] leading-tight mt-[40rem]"
+            className="max-w-2xl mx-auto text-[50px] leading-tight mt-[160rem]"
           >
             We amplify human ingenuity through the power of deep technology. By combining strategic insights with advanced software solutions, we empower businesses to unlock their full potential. Whether it's harnessing AI, modernizing legacy systems, or building future-ready platforms, we focus on enabling innovation that drives meaningful transformation. Together, let's shape a smarter, more connected future.
           </p>
