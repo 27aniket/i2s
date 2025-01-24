@@ -1,11 +1,14 @@
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const isMobile = useIsMobile();
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -16,11 +19,28 @@ const Navigation = () => {
   }, []);
 
   const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-      setIsOpen(false);
+    if (location.pathname !== '/') {
+      navigate('/');
+      // Add a small delay to ensure navigation completes before scrolling
+      setTimeout(() => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+          setIsOpen(false);
+        }
+      }, 100);
+    } else {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+        setIsOpen(false);
+      }
     }
+  };
+
+  const handleAboutClick = () => {
+    navigate('/about');
+    setIsOpen(false);
   };
 
   return (
@@ -28,7 +48,7 @@ const Navigation = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex-shrink-0">
-            <span className="text-2xl font-bold text-white">I2S</span>
+            <span className="text-2xl font-bold text-white cursor-pointer" onClick={() => navigate('/')}>I2S</span>
           </div>
           
           {isMobile ? (
@@ -43,7 +63,7 @@ const Navigation = () => {
               <button onClick={() => scrollToSection('industries')} className="nav-link">Industries</button>
               <button onClick={() => scrollToSection('services')} className="nav-link">Services</button>
               <button onClick={() => scrollToSection('case-studies')} className="nav-link">Case Studies</button>
-              <button onClick={() => scrollToSection('about')} className="nav-link">About</button>
+              <button onClick={handleAboutClick} className="nav-link">About</button>
               <button onClick={() => scrollToSection('contact')} className="nav-link">Contact</button>
               <button onClick={() => scrollToSection('contact')} className="button-primary">
                 Get Started
@@ -58,7 +78,7 @@ const Navigation = () => {
           <button onClick={() => scrollToSection('industries')} className="nav-link block px-3 py-2 w-full text-left">Industries</button>
           <button onClick={() => scrollToSection('services')} className="nav-link block px-3 py-2 w-full text-left">Services</button>
           <button onClick={() => scrollToSection('case-studies')} className="nav-link block px-3 py-2 w-full text-left">Case Studies</button>
-          <button onClick={() => scrollToSection('about')} className="nav-link block px-3 py-2 w-full text-left">About</button>
+          <button onClick={handleAboutClick} className="nav-link block px-3 py-2 w-full text-left">About</button>
           <button onClick={() => scrollToSection('contact')} className="nav-link block px-3 py-2 w-full text-left">Contact</button>
           <button onClick={() => scrollToSection('contact')} className="button-primary w-full mt-4">
             Get Started
