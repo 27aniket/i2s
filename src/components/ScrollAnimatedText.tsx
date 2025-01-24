@@ -10,11 +10,15 @@ const ScrollAnimatedText = ({ text }: { text: string }) => {
     const paragraph = paragraphRef.current;
     if (!paragraph) return;
 
-    const words = text.split(' ');
+    const paragraphs = text.split('\n\n');
+    const formattedText = paragraphs.map(para => {
+      const words = para.split(' ');
+      return words
+        .map((word, index) => `<span class="inline-block transition-colors duration-300 ease-in-out text-[#555555]" data-index="${index}">${word}</span>`)
+        .join(' ');
+    }).join('<br><br>');
     
-    paragraph.innerHTML = words
-      .map((word, index) => `<span class="inline-block transition-colors duration-300 ease-in-out text-[#555555]" data-index="${index}">${word}</span>`)
-      .join(' ');
+    paragraph.innerHTML = formattedText;
 
     const spans = paragraph.querySelectorAll('span');
     
@@ -83,7 +87,7 @@ const ScrollAnimatedText = ({ text }: { text: string }) => {
   }, [text]);
 
   return (
-    <p ref={paragraphRef} className="max-w-2xl mx-auto text-[50px] leading-tight" />
+    <p ref={paragraphRef} className="max-w-2xl mx-auto text-[50px] leading-tight whitespace-pre-line" />
   );
 };
 
