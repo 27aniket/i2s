@@ -47,11 +47,10 @@ const Hero = () => {
       <div className="section-container">
         <div className="text-center space-y-8 animate-fade-in">
           <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-white">
-            Transforming Ideas into
-            <span className="bg-gradient-primary bg-clip-text text-transparent"> Software Excellence</span>
+            <span className="bg-gradient-primary bg-clip-text text-transparent">Re-Imagine</span>
           </h1>
           <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto">
-            Empowering businesses with fresh perspectives and seamless solutions
+            Reimagining human potential through Deep Tech
           </p>
           <div className="flex items-center justify-center space-x-4">
             <button onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })} className="button-primary">
