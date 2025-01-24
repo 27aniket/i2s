@@ -5,20 +5,24 @@ const ScrollAnimatedText = ({ text }: { text: string }) => {
   const lastScrollY = useRef(0);
   const currentWordIndex = useRef(0);
   const lastScrollTime = useRef(Date.now());
+  const totalWordsRef = useRef(0);
 
   useEffect(() => {
     const paragraph = paragraphRef.current;
     if (!paragraph) return;
 
     const paragraphs = text.split('\n\n');
+    let totalWords = 0;
     const formattedText = paragraphs.map(para => {
       const words = para.split(' ');
+      totalWords += words.length;
       return words
-        .map((word, index) => `<span class="inline-block transition-colors duration-300 ease-in-out text-[#555555]" data-index="${index}">${word}</span>`)
+        .map((word, index) => `<span class="inline-block transition-colors duration-300 ease-in-out text-[#555555]" data-index="${totalWords - words.length + index}">${word}</span>`)
         .join(' ');
     }).join('<br><br>');
     
     paragraph.innerHTML = formattedText;
+    totalWordsRef.current = totalWords;
 
     const spans = paragraph.querySelectorAll('span');
     
@@ -54,20 +58,20 @@ const ScrollAnimatedText = ({ text }: { text: string }) => {
       
       if (elementTop < -paragraphRect.height) {
         spans.forEach((_, i) => animateWord(i, true));
-        currentWordIndex.current = spans.length;
+        currentWordIndex.current = totalWordsRef.current;
         lastScrollY.current = scrollY;
         lastScrollTime.current = currentTime;
         return;
       }
 
       const progress = (viewportCenter - elementTop) / viewportCenter;
-      const adjustedProgress = progress * 0.4; // Changed from 0.35 to 0.4
-      const targetWordIndex = Math.floor(adjustedProgress * words.length);
+      const adjustedProgress = progress * 0.4;
+      const targetWordIndex = Math.floor(adjustedProgress * totalWordsRef.current);
       
       const scrollingDown = scrollY > lastScrollY.current;
       
       if (scrollingDown) {
-        while (currentWordIndex.current < targetWordIndex && currentWordIndex.current < words.length) {
+        while (currentWordIndex.current < targetWordIndex && currentWordIndex.current < totalWordsRef.current) {
           animateWord(currentWordIndex.current, true);
           currentWordIndex.current++;
         }
