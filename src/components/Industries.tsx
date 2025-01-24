@@ -73,35 +73,39 @@ const Industries = () => {
           Delivering innovative solutions across diverse sectors, transforming challenges into opportunities.
         </p>
         
-        <div className="mt-12 overflow-x-auto pb-8 no-scrollbar">
-          <div className="flex gap-6 snap-x snap-mandatory touch-pan-x w-full justify-center">
-            {industries.map((industry) => (
-              <div 
-                key={industry.title} 
-                className="w-[300px] md:w-[350px] flex-shrink-0 snap-center"
-              >
-                <Card className="border-white/10 bg-black/50 overflow-hidden group hover:border-[#f15a2b] transition-all duration-300 aspect-[3/4]">
-                  <CardContent className="p-0 h-full flex flex-col">
-                    <div className="relative h-1/2">
-                      <img
-                        src={`https://images.unsplash.com/${industry.image}?auto=format&fit=crop&w=800&q=80`}
-                        alt={industry.title}
-                        className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                      />
-                    </div>
-                    <div className="h-1/2 p-6 bg-black">
-                      <h3 className="text-2xl font-bold mb-3 bg-gradient-primary inline-block text-transparent bg-clip-text group-hover:text-[#f15a2b] transition-colors">
-                        {industry.title}
-                      </h3>
-                      <p className="text-gray-300">
-                        {industry.description}
-                      </p>
-                    </div>
-                  </CardContent>
-                </Card>
-              </div>
-            ))}
+        <div className="mt-12 relative">
+          <div className="max-w-[1200px] mx-auto overflow-x-auto pb-8 no-scrollbar">
+            <div className="flex gap-6 snap-x snap-mandatory touch-pan-x w-max">
+              {industries.map((industry) => (
+                <div 
+                  key={industry.title} 
+                  className="w-[300px] md:w-[350px] flex-shrink-0 snap-center"
+                >
+                  <Card className="border-white/10 bg-black/50 overflow-hidden group hover:border-[#f15a2b] transition-all duration-300 aspect-[3/4]">
+                    <CardContent className="p-0 h-full flex flex-col">
+                      <div className="relative h-1/2">
+                        <img
+                          src={`https://images.unsplash.com/${industry.image}?auto=format&fit=crop&w=800&q=80`}
+                          alt={industry.title}
+                          className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                        />
+                      </div>
+                      <div className="h-1/2 p-6 bg-black">
+                        <h3 className="text-2xl font-bold mb-3 bg-gradient-primary inline-block text-transparent bg-clip-text group-hover:text-[#f15a2b] transition-colors">
+                          {industry.title}
+                        </h3>
+                        <p className="text-gray-300">
+                          {industry.description}
+                        </p>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </div>
+              ))}
+            </div>
           </div>
+          <div className="absolute top-0 right-0 bottom-0 w-24 bg-gradient-to-l from-black to-transparent pointer-events-none" 
+               style={{ background: isWhite ? 'linear-gradient(to left, white, transparent)' : 'linear-gradient(to left, black, transparent)' }} />
         </div>
       </div>
     </section>
