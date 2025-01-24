@@ -5,7 +5,6 @@ const ScrollAnimatedText = ({ text }: { text: string }) => {
   const lastScrollY = useRef(0);
   const currentWordIndex = useRef(0);
   const lastScrollTime = useRef(Date.now());
-  const scrollSpeed = useRef(0);
 
   useEffect(() => {
     const paragraph = paragraphRef.current;
@@ -38,44 +37,48 @@ const ScrollAnimatedText = ({ text }: { text: string }) => {
       const currentTime = Date.now();
       const timeDiff = currentTime - lastScrollTime.current;
       const scrollY = window.scrollY;
-      const scrollDiff = Math.abs(scrollY - lastScrollY.current);
-      
-      scrollSpeed.current = scrollDiff / (timeDiff || 1);
       
       const paragraphRect = paragraph.getBoundingClientRect();
       const isVisible = paragraphRect.top < window.innerHeight && paragraphRect.bottom > 0;
       
+      // If paragraph is not visible, reset or complete the animation
       if (!isVisible) {
         if (paragraphRect.bottom <= 0) {
+          // If scrolled past, highlight all words
           spans.forEach((_, i) => animateWord(i, true));
           currentWordIndex.current = spans.length;
         } else if (paragraphRect.top >= window.innerHeight) {
+          // If not scrolled to yet, reset all words
           spans.forEach((_, i) => animateWord(i, false));
           currentWordIndex.current = 0;
         }
+        lastScrollY.current = scrollY;
+        lastScrollTime.current = currentTime;
         return;
       }
 
+      // Calculate visibility percentage
+      const visibilityPercentage = 1 - (paragraphRect.top / window.innerHeight);
+      const targetWordIndex = Math.floor(visibilityPercentage * words.length);
+      
+      // Determine scroll direction
       const scrollingDown = scrollY > lastScrollY.current;
+      
+      // Update animation based on scroll direction
+      if (scrollingDown) {
+        while (currentWordIndex.current < targetWordIndex && currentWordIndex.current < words.length) {
+          animateWord(currentWordIndex.current, true);
+          currentWordIndex.current++;
+        }
+      } else {
+        while (currentWordIndex.current > targetWordIndex && currentWordIndex.current > 0) {
+          currentWordIndex.current--;
+          animateWord(currentWordIndex.current, false);
+        }
+      }
+
       lastScrollY.current = scrollY;
       lastScrollTime.current = currentTime;
-
-      const baseDelay = 150;
-      const minDelay = 50;
-      const delay = Math.max(minDelay, baseDelay * (1 - scrollSpeed.current * 10));
-
-      if (scrollingDown && currentWordIndex.current < spans.length) {
-        animateWord(currentWordIndex.current, true);
-        currentWordIndex.current++;
-      } else if (!scrollingDown && currentWordIndex.current > 0) {
-        currentWordIndex.current--;
-        animateWord(currentWordIndex.current, false);
-      }
-
-      if ((scrollingDown && currentWordIndex.current < spans.length) ||
-          (!scrollingDown && currentWordIndex.current > 0)) {
-        setTimeout(handleScroll, delay);
-      }
     };
 
     window.addEventListener('scroll', handleScroll);
