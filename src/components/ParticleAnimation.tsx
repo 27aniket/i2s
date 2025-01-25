@@ -16,10 +16,35 @@ const ParticleAnimation = () => {
     containerRef.current.appendChild(renderer.domElement);
 
     // Create particles
-    const particleCount = 1000;
+    const particleCount = 2000; // Increased for better shape definition
     const particles = new THREE.BufferGeometry();
     const positions = new Float32Array(particleCount * 3);
 
+    // Define shape coordinates
+    const lightbulbShape = new Array(particleCount).fill(0).map((_, i) => {
+      const angle = (i / particleCount) * Math.PI * 2;
+      const radius = 2;
+      // Basic lightbulb shape
+      const y = Math.sin(angle) * radius;
+      const x = Math.cos(angle) * radius;
+      const z = 0;
+      return [x, y + (y > 0 ? 1 : 0), z];
+    });
+
+    const gearShape = new Array(particleCount).fill(0).map((_, i) => {
+      const angle = (i / particleCount) * Math.PI * 2;
+      const radius = 2;
+      // Gear shape with teeth
+      const toothDepth = 0.3;
+      const teethCount = 12;
+      const r = radius + (Math.floor(angle * teethCount / (Math.PI * 2)) % 2) * toothDepth;
+      const x = Math.cos(angle) * r;
+      const y = Math.sin(angle) * r;
+      const z = 0;
+      return [x, y, z];
+    });
+
+    // Initial random positions
     for (let i = 0; i < particleCount * 3; i += 3) {
       positions[i] = (Math.random() - 0.5) * 10;
       positions[i + 1] = (Math.random() - 0.5) * 10;
@@ -57,17 +82,59 @@ const ParticleAnimation = () => {
 
     camera.position.z = 5;
 
+    // Animation variables
+    let currentShape = 'random';
+    let morphProgress = 0;
+    let lastTime = 0;
+    const morphDuration = 3000; // 3 seconds per shape
+
     // Animation
-    const animate = () => {
+    const animate = (currentTime: number) => {
       requestAnimationFrame(animate);
 
-      particleSystem.rotation.x += 0.001;
-      particleSystem.rotation.y += 0.002;
+      const deltaTime = currentTime - lastTime;
+      lastTime = currentTime;
+
+      // Update morph progress
+      morphProgress += deltaTime / morphDuration;
+      if (morphProgress >= 1) {
+        morphProgress = 0;
+        // Cycle through shapes
+        currentShape = currentShape === 'random' ? 'lightbulb' : 
+                      currentShape === 'lightbulb' ? 'gear' : 'random';
+      }
+
+      // Update particle positions
+      const positions = particles.attributes.position.array as Float32Array;
+      for (let i = 0; i < particleCount; i++) {
+        const i3 = i * 3;
+        let targetX, targetY, targetZ;
+
+        if (currentShape === 'random') {
+          targetX = (Math.random() - 0.5) * 10;
+          targetY = (Math.random() - 0.5) * 10;
+          targetZ = (Math.random() - 0.5) * 10;
+        } else if (currentShape === 'lightbulb') {
+          [targetX, targetY, targetZ] = lightbulbShape[i];
+        } else {
+          [targetX, targetY, targetZ] = gearShape[i];
+        }
+
+        // Smooth interpolation
+        positions[i3] += (targetX - positions[i3]) * 0.02;
+        positions[i3 + 1] += (targetY - positions[i3 + 1]) * 0.02;
+        positions[i3 + 2] += (targetZ - positions[i3 + 2]) * 0.02;
+      }
+
+      particles.attributes.position.needsUpdate = true;
+      
+      // Gentle rotation
+      particleSystem.rotation.y += 0.001;
 
       renderer.render(scene, camera);
     };
 
-    animate();
+    animate(0);
 
     // Handle window resize
     const handleResize = () => {
@@ -84,7 +151,9 @@ const ParticleAnimation = () => {
     // Cleanup
     return () => {
       window.removeEventListener('resize', handleResize);
-      containerRef.current?.removeChild(renderer.domElement);
+      if (containerRef.current?.contains(renderer.domElement)) {
+        containerRef.current.removeChild(renderer.domElement);
+      }
       renderer.dispose();
     };
   }, []);
