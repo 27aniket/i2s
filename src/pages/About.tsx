@@ -14,6 +14,7 @@ const About = () => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('animate-fade-in');
+          entry.target.classList.remove('opacity-0');
           observer.unobserve(entry.target);
         }
       });
@@ -31,7 +32,7 @@ const About = () => {
       
       <main className="section-container pt-32">
         {/* Vision Section */}
-        <section className="mb-20 scroll-animate opacity-0">
+        <section className="mb-20 scroll-animate opacity-0 translate-y-4">
           <h2 className="text-3xl md:text-4xl font-bold mb-8 bg-gradient-primary bg-clip-text text-transparent">
             Our Vision
           </h2>
@@ -42,7 +43,7 @@ const About = () => {
         </section>
 
         {/* Mission Section */}
-        <section className="mb-20 scroll-animate opacity-0">
+        <section className="mb-20 scroll-animate opacity-0 translate-y-4">
           <h2 className="text-3xl md:text-4xl font-bold mb-8 bg-gradient-primary bg-clip-text text-transparent">
             Our Mission
           </h2>
@@ -72,7 +73,7 @@ const About = () => {
         </section>
 
         {/* Core Values Section */}
-        <section className="mb-20 scroll-animate opacity-0">
+        <section className="mb-20 scroll-animate opacity-0 translate-y-4">
           <h2 className="text-3xl md:text-4xl font-bold mb-8 bg-gradient-primary bg-clip-text text-transparent">
             Core Values
           </h2>
