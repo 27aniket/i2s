@@ -11,7 +11,7 @@ const HeroContent = () => {
           Bridging the gap between policy, process, and people. With a deep commitment to fostering impactful change, we enable governments, organizations, and communities to embrace digital transformation that drives measurable outcomes.
         </p>
       </div>
-      <div className="flex items-center space-x-4">
+      <div className="flex items-center space-x-4 mt-[70px]">
         <button onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })} className="button-primary">
           Get Started
           <ArrowRight className="ml-2 h-4 w-4" />

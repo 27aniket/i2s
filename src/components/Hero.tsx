@@ -15,13 +15,13 @@ const Hero = () => {
                 <HeroContent />
               </div>
             </div>
-            <div className="w-full lg:w-[35%] flex justify-end items-center mt-8 lg:mt-0">
+            <div className="w-full lg:w-[35%] flex justify-end items-center mt-8 lg:mt-0 pr-8">
               <div className="w-[70%] h-[70%]">
                 <ParticleAnimation />
               </div>
             </div>
           </div>
-          <div className="w-full max-w-4xl mx-auto mt-32">
+          <div className="w-full max-w-4xl mx-auto mt-48">
             <ScrollAnimatedText text={animatedText} />
           </div>
         </div>
