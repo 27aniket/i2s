@@ -46,7 +46,7 @@ const ScrollAnimatedText = ({ text }: { text: string }) => {
       const paragraphRect = paragraph.getBoundingClientRect();
       const windowHeight = window.innerHeight;
       const elementTop = paragraphRect.top;
-      const viewportTrigger = windowHeight * 0.7; // Trigger at 70% of viewport height
+      const viewportTrigger = windowHeight * 0.7;
       
       if (elementTop > viewportTrigger) {
         spans.forEach((_, i) => animateWord(i, false));
@@ -64,7 +64,6 @@ const ScrollAnimatedText = ({ text }: { text: string }) => {
         return;
       }
 
-      // Enhanced progress calculation for smoother and complete highlighting
       const totalDistance = viewportTrigger + paragraphRect.height;
       const scrolledDistance = viewportTrigger - elementTop;
       const progress = Math.min(1, Math.max(0, (scrolledDistance * 1.5) / totalDistance));
@@ -96,7 +95,6 @@ const ScrollAnimatedText = ({ text }: { text: string }) => {
     <p 
       ref={paragraphRef} 
       className="max-w-2xl mx-auto text-[50px] leading-tight whitespace-pre-line text-center"
-      style={{ margin: '0 auto', textAlign: 'center' }}
     />
   );
 };
