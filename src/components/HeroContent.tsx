@@ -2,7 +2,7 @@ import { ArrowRight } from 'lucide-react';
 
 const HeroContent = () => {
   return (
-    <div className="space-y-32">
+    <div className="space-y-160">
       <div className="space-y-8">
         <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-white text-left">
           <span className="bg-gradient-primary bg-clip-text text-transparent">Transforming Vision into Action</span>
@@ -11,7 +11,7 @@ const HeroContent = () => {
           Bridging the gap between policy, process, and people. With a deep commitment to fostering impactful change, we enable governments, organizations, and communities to embrace digital transformation that drives measurable outcomes.
         </p>
       </div>
-      <div className="flex items-center space-x-4 mt-[80px]">
+      <div className="flex items-center space-x-4">
         <button onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })} className="button-primary">
           Get Started
           <ArrowRight className="ml-2 h-4 w-4" />
