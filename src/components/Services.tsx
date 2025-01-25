@@ -41,38 +41,37 @@ const Services = () => {
         Comprehensive solutions tailored to your business needs
       </p>
       
-      <div className="mt-12 relative">
-        <div className="max-w-[1200px] mx-auto overflow-x-auto pb-8 no-scrollbar">
-          <div className="flex gap-6 snap-x snap-mandatory touch-pan-x w-max">
-            {services.map((service) => (
-              <div 
-                key={service.title} 
-                className="w-[300px] md:w-[350px] flex-shrink-0 snap-center"
-              >
-                <Card className="border-white/10 bg-black/50 overflow-hidden group hover:border-[#f15a2b] transition-all duration-300 aspect-[3/4]">
-                  <CardContent className="p-0 h-full">
-                    <div className="relative h-1/2">
-                      <img
-                        src={`https://images.unsplash.com/${service.image}?auto=format&fit=crop&w=800&q=80`}
-                        alt={service.title}
-                        className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                      />
-                    </div>
-                    <div className="h-1/2 p-6 bg-black">
-                      <h3 className="text-2xl font-bold mb-3 bg-gradient-primary inline-block text-transparent bg-clip-text group-hover:text-[#f15a2b] transition-colors">
-                        {service.title}
-                      </h3>
-                      <p className="text-gray-300">
-                        {service.description}
-                      </p>
-                    </div>
-                  </CardContent>
-                </Card>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-[calc(262px*3+1.5rem*2)] mx-auto mt-12">
+        {services.map((service) => (
+          <Card 
+            key={service.title}
+            className="group relative overflow-hidden border-white/10 hover:border-[#f15a2b] bg-black/50 hover:bg-white transition-all duration-300 rounded-none aspect-[3/4] w-[262px]"
+          >
+            <CardContent className="p-0 h-full">
+              <div className="absolute inset-0 z-10 transition-transform duration-500 group-hover:-translate-y-full">
+                <img
+                  src={`https://images.unsplash.com/${service.image}?auto=format&fit=crop&w=800&q=80`}
+                  alt={service.title}
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/90 to-transparent">
+                  <h3 className="text-2xl font-bold text-white">
+                    {service.title}
+                  </h3>
+                </div>
               </div>
-            ))}
-          </div>
-        </div>
-        <div className="absolute top-0 right-0 bottom-0 w-24 bg-gradient-to-l from-black to-transparent pointer-events-none" />
+              
+              <div className="absolute inset-0 p-6 bg-white flex flex-col opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                <h3 className="text-2xl font-bold mb-4 bg-gradient-primary inline-block text-transparent bg-clip-text">
+                  {service.title}
+                </h3>
+                <p className="text-gray-700">
+                  {service.description}
+                </p>
+              </div>
+            </CardContent>
+          </Card>
+        ))}
       </div>
     </section>
   );
