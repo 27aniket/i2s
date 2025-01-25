@@ -38,7 +38,12 @@ const Navigation = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex-shrink-0">
-            <span className="text-2xl font-bold text-white cursor-pointer" onClick={() => navigate('/')}>I2S</span>
+            <span 
+              className="text-2xl font-bold cursor-pointer bg-gradient-primary bg-clip-text text-transparent hover:scale-105 transition-transform"
+              onClick={() => navigate('/')}
+            >
+              I2S
+            </span>
           </div>
           
           {isMobile ? (
