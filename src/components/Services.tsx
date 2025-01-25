@@ -34,11 +34,6 @@ const services = [
 ];
 
 const Services = () => {
-  // Calculate the new card width (360.25px * 0.8 = 288.2px)
-  const cardWidth = 288.2;
-  // Calculate total width for 3 cards plus 2 gaps (1.5rem = 24px)
-  const totalWidth = (cardWidth * 3) + (24 * 2); // 912.6px
-  
   return (
     <section className="section-container" id="services">
       <h2 className="section-title bg-gradient-primary text-transparent bg-clip-text text-center">Our Services</h2>
@@ -46,31 +41,31 @@ const Services = () => {
         Comprehensive solutions tailored to your business needs
       </p>
       
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-[912.6px] mx-auto mt-12">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
         {services.map((service) => (
           <Card 
             key={service.title}
-            className="group relative overflow-hidden border-white/10 hover:border-[#f15a2b] bg-black/50 hover:bg-white transition-all duration-300 rounded-none aspect-[3/4] w-[288.2px]"
+            className="group relative overflow-hidden border-white/10 hover:border-[#f15a2b] bg-black/50 hover:bg-white transition-all duration-300 h-[400px] sm:h-[450px]"
           >
             <CardContent className="p-0 h-full">
               <div className="absolute inset-0 z-10 transition-transform duration-500 group-hover:-translate-y-full">
                 <img
                   src={`https://images.unsplash.com/${service.image}?auto=format&fit=crop&w=800&q=80`}
                   alt={service.title}
-                  className="w-full h-full object-cover"
+                  className="w-full h-1/2 object-cover"
                 />
                 <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/90 to-transparent">
-                  <h3 className="text-2xl font-bold text-white">
+                  <h3 className="text-xl sm:text-2xl font-bold text-white">
                     {service.title}
                   </h3>
                 </div>
               </div>
               
-              <div className="absolute inset-0 p-6 bg-white flex flex-col opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                <h3 className="text-2xl font-bold mb-4 bg-gradient-primary inline-block text-transparent bg-clip-text">
+              <div className="absolute inset-0 p-6 bg-white opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                <h3 className="text-xl sm:text-2xl font-bold mb-4 bg-gradient-primary inline-block text-transparent bg-clip-text">
                   {service.title}
                 </h3>
-                <p className="text-gray-700">
+                <p className="text-gray-700 text-sm sm:text-base">
                   {service.description}
                 </p>
               </div>
