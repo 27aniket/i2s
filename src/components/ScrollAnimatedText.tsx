@@ -93,7 +93,11 @@ const ScrollAnimatedText = ({ text }: { text: string }) => {
   }, [text]);
 
   return (
-    <p ref={paragraphRef} className="max-w-2xl mx-auto text-[50px] leading-tight whitespace-pre-line text-center" />
+    <p 
+      ref={paragraphRef} 
+      className="max-w-2xl mx-auto text-[50px] leading-tight whitespace-pre-line text-center"
+      style={{ margin: '0 auto' }} 
+    />
   );
 };
 
