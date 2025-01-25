@@ -15,7 +15,7 @@ const Hero = () => {
                 <HeroContent />
               </div>
             </div>
-            <div className="w-[35%] -ml-20">
+            <div className="w-[35%] ml-8">
               <ParticleAnimation />
             </div>
           </div>
