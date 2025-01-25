@@ -34,6 +34,11 @@ const services = [
 ];
 
 const Services = () => {
+  // Calculate the new card width (360.25px * 0.8 = 288.2px)
+  const cardWidth = 288.2;
+  // Calculate total width for 3 cards plus 2 gaps (1.5rem = 24px)
+  const totalWidth = (cardWidth * 3) + (24 * 2); // 912.6px
+  
   return (
     <section className="section-container" id="services">
       <h2 className="section-title bg-gradient-primary text-transparent bg-clip-text text-center">Our Services</h2>
@@ -41,11 +46,11 @@ const Services = () => {
         Comprehensive solutions tailored to your business needs
       </p>
       
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto mt-12">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-[912.6px] mx-auto mt-12">
         {services.map((service) => (
           <Card 
             key={service.title}
-            className="group relative overflow-hidden border-white/10 hover:border-[#f15a2b] bg-black/50 hover:bg-white transition-all duration-300 rounded-none aspect-[3/4]"
+            className="group relative overflow-hidden border-white/10 hover:border-[#f15a2b] bg-black/50 hover:bg-white transition-all duration-300 rounded-none aspect-[3/4] w-[288.2px]"
           >
             <CardContent className="p-0 h-full">
               <div className="absolute inset-0 z-10 transition-transform duration-500 group-hover:-translate-y-full">
