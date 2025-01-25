@@ -15,8 +15,8 @@ const Hero = () => {
                 <HeroContent />
               </div>
             </div>
-            <div className="w-full lg:w-[35%] flex justify-end items-center mt-8 lg:mt-0 pr-8">
-              <div className="w-[70%] h-[70%]">
+            <div className="w-full lg:w-[35%] flex justify-center items-center mt-8 lg:mt-0">
+              <div className="w-[70%] h-[70%] transform lg:translate-x-1/4">
                 <ParticleAnimation />
               </div>
             </div>
