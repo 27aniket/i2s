@@ -7,19 +7,21 @@ const Hero = () => {
 
   return (
     <section className="min-h-screen flex flex-col justify-center bg-black relative overflow-hidden">
-      <div className="section-container flex flex-col justify-center min-h-screen relative z-10">
-        <div className="flex flex-col">
-          <div className="flex gap-8 mb-16">
-            <div className="w-[65%]">
-              <div className="text-left space-y-8 animate-fade-in">
+      <div className="section-container flex flex-col justify-between min-h-screen relative z-10">
+        <div className="flex flex-col h-full">
+          <div className="flex flex-col lg:flex-row items-center h-full">
+            <div className="w-full lg:w-[65%] flex flex-col justify-end pb-16">
+              <div className="text-left animate-fade-in">
                 <HeroContent />
               </div>
             </div>
-            <div className="w-[35%] ml-32">
-              <ParticleAnimation />
+            <div className="w-full lg:w-[35%] flex justify-end items-center mt-8 lg:mt-0">
+              <div className="w-[70%] h-[70%]">
+                <ParticleAnimation />
+              </div>
             </div>
           </div>
-          <div className="w-full max-w-4xl mx-auto">
+          <div className="w-full max-w-4xl mx-auto mt-32">
             <ScrollAnimatedText text={animatedText} />
           </div>
         </div>

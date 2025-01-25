@@ -12,7 +12,10 @@ const ParticleAnimation = () => {
     const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
     const renderer = new THREE.WebGLRenderer({ alpha: true });
     
-    renderer.setSize(window.innerWidth, window.innerHeight);
+    // Set renderer size to 70% of the original size
+    const width = window.innerWidth * 0.7;
+    const height = window.innerHeight * 0.7;
+    renderer.setSize(width, height);
     containerRef.current.appendChild(renderer.domElement);
 
     // Create particles
@@ -138,8 +141,8 @@ const ParticleAnimation = () => {
 
     // Handle window resize
     const handleResize = () => {
-      const width = window.innerWidth;
-      const height = window.innerHeight;
+      const width = window.innerWidth * 0.7;
+      const height = window.innerHeight * 0.7;
 
       camera.aspect = width / height;
       camera.updateProjectionMatrix();
@@ -161,7 +164,7 @@ const ParticleAnimation = () => {
   return (
     <div 
       ref={containerRef} 
-      className="absolute inset-0 w-full h-full"
+      className="w-full h-full"
       style={{ background: 'transparent' }}
     />
   );
