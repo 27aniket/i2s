@@ -64,8 +64,10 @@ const ScrollAnimatedText = ({ text }: { text: string }) => {
         return;
       }
 
-      // Adjusted progress calculation to ensure complete highlighting
-      const progress = Math.min(1, Math.max(0, (viewportTrigger - elementTop) / (viewportTrigger + paragraphRect.height)));
+      // Enhanced progress calculation for smoother and complete highlighting
+      const totalDistance = viewportTrigger + paragraphRect.height;
+      const scrolledDistance = viewportTrigger - elementTop;
+      const progress = Math.min(1, Math.max(0, (scrolledDistance * 1.5) / totalDistance));
       const targetWordIndex = Math.floor(progress * totalWordsRef.current);
       
       const scrollingDown = scrollY > lastScrollY.current;
