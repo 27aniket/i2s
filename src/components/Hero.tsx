@@ -8,17 +8,19 @@ const Hero = () => {
   return (
     <section className="min-h-screen flex flex-col justify-center bg-black relative overflow-hidden">
       <div className="section-container flex flex-col justify-center min-h-screen relative z-10">
-        <div className="grid grid-cols-12 gap-8">
-          <div className="col-span-4 relative">
-            <ParticleAnimation />
-          </div>
-          <div className="col-span-8">
-            <div className="text-left space-y-8 animate-fade-in">
-              <HeroContent />
-              <div className="relative text-center mx-auto" style={{ marginTop: '30vh' }}>
-                <ScrollAnimatedText text={animatedText} />
+        <div className="flex flex-col">
+          <div className="flex gap-8 mb-16">
+            <div className="w-[65%]">
+              <div className="text-left space-y-8 animate-fade-in">
+                <HeroContent />
               </div>
             </div>
+            <div className="w-[35%] -ml-20">
+              <ParticleAnimation />
+            </div>
+          </div>
+          <div className="w-full max-w-4xl mx-auto">
+            <ScrollAnimatedText text={animatedText} />
           </div>
         </div>
       </div>
