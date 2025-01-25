@@ -54,35 +54,35 @@ const About = () => {
             Core Values
           </h2>
           <div className="space-y-8">
-            <div className="card hover:border-white/20">
+            <div className="rounded-lg p-6 border border-gray-200 hover:border-gray-300 transition-colors">
               <h3 className="text-xl font-semibold mb-3 text-gray-800">Innovation at the Core</h3>
               <p className="text-gray-600">
                 We embrace cutting-edge technologies to design forward-thinking solutions 
                 that address real-world challenges.
               </p>
             </div>
-            <div className="card hover:border-white/20">
+            <div className="rounded-lg p-6 border border-gray-200 hover:border-gray-300 transition-colors">
               <h3 className="text-xl font-semibold mb-3 text-gray-800">Stakeholder Empowerment</h3>
               <p className="text-gray-600">
                 Our people-first approach ensures that citizens and policymakers are at 
                 the heart of every transformation.
               </p>
             </div>
-            <div className="card hover:border-white/20">
+            <div className="rounded-lg p-6 border border-gray-200 hover:border-gray-300 transition-colors">
               <h3 className="text-xl font-semibold mb-3 text-gray-800">Agility and Adaptability</h3>
               <p className="text-gray-600">
                 We thrive in dynamic environments, delivering rapid and scalable solutions 
                 tailored to evolving needs.
               </p>
             </div>
-            <div className="card hover:border-white/20">
+            <div className="rounded-lg p-6 border border-gray-200 hover:border-gray-300 transition-colors">
               <h3 className="text-xl font-semibold mb-3 text-gray-800">Integrity and Transparency</h3>
               <p className="text-gray-600">
                 Upholding the highest ethical standards, we build trust through accountability 
                 and open communication.
               </p>
             </div>
-            <div className="card hover:border-white/20">
+            <div className="rounded-lg p-6 border border-gray-200 hover:border-gray-300 transition-colors">
               <h3 className="text-xl font-semibold mb-3 text-gray-800">Sustainability and Inclusivity</h3>
               <p className="text-gray-600">
                 We aim to bridge the digital divide, ensuring no one is left behind in the 
