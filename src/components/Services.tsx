@@ -51,24 +51,18 @@ const Services = () => {
               >
                 <Card className="border-white/10 bg-black/50 overflow-hidden group hover:border-[#f15a2b] transition-all duration-300 aspect-[3/4]">
                   <CardContent className="p-0 h-full">
-                    <div className="absolute inset-0 z-10 transition-transform duration-500 group-hover:-translate-y-full">
+                    <div className="relative h-1/2">
                       <img
                         src={`https://images.unsplash.com/${service.image}?auto=format&fit=crop&w=800&q=80`}
                         alt={service.title}
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                       />
-                      <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/90 to-transparent">
-                        <h3 className="text-2xl font-bold text-white">
-                          {service.title}
-                        </h3>
-                      </div>
                     </div>
-                    
-                    <div className="absolute inset-0 p-6 bg-white flex flex-col opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                      <h3 className="text-2xl font-bold mb-4 bg-gradient-primary inline-block text-transparent bg-clip-text">
+                    <div className="h-1/2 p-6 bg-black">
+                      <h3 className="text-2xl font-bold mb-3 bg-gradient-primary inline-block text-transparent bg-clip-text group-hover:text-[#f15a2b] transition-colors">
                         {service.title}
                       </h3>
-                      <p className="text-gray-700">
+                      <p className="text-gray-300">
                         {service.description}
                       </p>
                     </div>
