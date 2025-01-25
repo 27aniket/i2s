@@ -1,36 +1,35 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { Rocket, Lightbulb, Code, Brain, LineChart, Users } from "lucide-react";
 
 const services = [
   {
     title: "Innovation Strategy",
     description: "We help businesses define and implement strategies to drive innovation and stay ahead in a competitive market. From identifying emerging trends to evaluating disruptive technologies, we enable organizations to create value through transformative ideas and cutting-edge solutions.",
-    icon: Lightbulb
+    image: "photo-1460925895917-afdab827c52f"
   },
   {
     title: "Product Discovery",
     description: "Our Product Discovery service helps businesses validate ideas, understand user needs, and define the right features for a successful product launch. We conduct market research, competitor analysis, and user interviews to ensure your product aligns with customer expectations and business goals.",
-    icon: LineChart
+    image: "photo-1522071820081-009f0129c71c"
   },
   {
     title: "Product Development",
     description: "We specialize in end-to-end product development, turning your ideas into robust, scalable, and user-friendly solutions. Leveraging agile methodologies, we ensure rapid delivery without compromising quality, keeping your business goals at the forefront.",
-    icon: Code
+    image: "photo-1522071901873-411886a10004"
   },
   {
     title: "Artificial Intelligence",
     description: "Empowering businesses with AI-driven solutions to automate processes, enhance decision-making, and unlock new opportunities. Our expertise spans machine learning, natural language processing, and computer vision, tailored to solve real-world problems across industries.",
-    icon: Brain
+    image: "photo-1677442136019-21780ecad995"
   },
   {
     title: "Product Management",
     description: "We provide comprehensive product management services to ensure your products are delivered on time, within budget, and aligned with customer expectations. From roadmaps to release planning, our team ensures every step of the product lifecycle is optimized for success.",
-    icon: Rocket
+    image: "photo-1531403009284-440f080d1e12"
   },
   {
     title: "Staff Augmentation",
     description: "Scale your team with top talent and fill critical skill gaps quickly through our staff augmentation services. Whether you need developers, designers, or project managers, we provide skilled professionals who integrate seamlessly with your team and processes.",
-    icon: Users
+    image: "photo-1553877522-43269d4ea984"
   }
 ];
 
@@ -55,9 +54,11 @@ const Services = () => {
           >
             <CardContent className="p-0 h-full">
               <div className="absolute inset-0 z-10 transition-transform duration-500 group-hover:-translate-y-full">
-                <div className="w-full h-full flex items-center justify-center bg-black/50">
-                  <service.icon size={64} className="text-white/80" strokeWidth={1.5} />
-                </div>
+                <img
+                  src={`https://images.unsplash.com/${service.image}?auto=format&fit=crop&w=800&q=80`}
+                  alt={service.title}
+                  className="w-full h-full object-cover"
+                />
                 <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/90 to-transparent">
                   <h3 className="text-2xl font-bold text-white">
                     {service.title}
