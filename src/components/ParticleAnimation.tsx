@@ -161,7 +161,7 @@ const ParticleAnimation = () => {
   return (
     <div 
       ref={containerRef} 
-      className="absolute inset-0 -z-10"
+      className="absolute inset-0 w-full h-full"
       style={{ background: 'transparent' }}
     />
   );
