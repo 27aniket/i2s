@@ -46,9 +46,9 @@ const ScrollAnimatedText = ({ text }: { text: string }) => {
       const paragraphRect = paragraph.getBoundingClientRect();
       const windowHeight = window.innerHeight;
       const elementTop = paragraphRect.top;
-      const viewportCenter = windowHeight * 0.7; // Adjusted to 70% of viewport height
+      const viewportTrigger = windowHeight * 0.7; // Trigger at 70% of viewport height
       
-      if (elementTop > viewportCenter) {
+      if (elementTop > viewportTrigger) {
         spans.forEach((_, i) => animateWord(i, false));
         currentWordIndex.current = 0;
         lastScrollY.current = scrollY;
@@ -64,9 +64,9 @@ const ScrollAnimatedText = ({ text }: { text: string }) => {
         return;
       }
 
-      const progress = (viewportCenter - elementTop) / viewportCenter;
-      const adjustedProgress = progress * 0.4;
-      const targetWordIndex = Math.floor(adjustedProgress * totalWordsRef.current);
+      // Adjusted progress calculation to ensure complete highlighting
+      const progress = Math.min(1, Math.max(0, (viewportTrigger - elementTop) / (viewportTrigger + paragraphRect.height)));
+      const targetWordIndex = Math.floor(progress * totalWordsRef.current);
       
       const scrollingDown = scrollY > lastScrollY.current;
       
