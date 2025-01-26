@@ -104,16 +104,16 @@ const CaseStudiesPage = () => {
               <motion.div
                 key={index}
                 initial={{ 
-                  opacity: 0, 
-                  x: index % 2 === 0 ? -50 : 50 
+                  opacity: 0,
+                  y: 50
                 }}
                 whileInView={{ 
-                  opacity: 1, 
-                  x: 0 
+                  opacity: 1,
+                  y: 0
                 }}
                 viewport={{ 
                   once: true,
-                  margin: "-150px"
+                  margin: "-100px"
                 }}
                 transition={{ 
                   duration: 0.8,
@@ -121,17 +121,16 @@ const CaseStudiesPage = () => {
                 }}
                 className="rounded-lg overflow-hidden"
                 style={{
-                  padding: '1px',
+                  padding: '2px', // Increased border width
                   background: 'linear-gradient(45deg, #ed265d, #f15a2b)',
                 }}
               >
-                <div className={`grid md:grid-cols-2 ${index % 2 === 0 ? '' : 'md:grid-flow-dense'} bg-white rounded-lg`}>
-                  <div className="h-full">
+                <div className="grid md:grid-cols-2 bg-white rounded-lg overflow-hidden h-full">
+                  <div className="h-full relative">
                     <img 
                       src={study.image} 
                       alt={study.title}
-                      className="w-full h-full object-cover"
-                      style={{ minHeight: '600px' }}
+                      className="w-full h-full object-cover absolute top-0 left-0"
                     />
                   </div>
                   <div className="p-8 flex flex-col justify-center">
