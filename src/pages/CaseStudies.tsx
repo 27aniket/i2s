@@ -105,7 +105,7 @@ const CaseStudiesPage = () => {
                 key={index}
                 initial={{ 
                   opacity: 0,
-                  y: 50
+                  y: 100
                 }}
                 whileInView={{ 
                   opacity: 1,
@@ -113,15 +113,16 @@ const CaseStudiesPage = () => {
                 }}
                 viewport={{ 
                   once: true,
-                  margin: "-100px"
+                  margin: "-50px",
+                  amount: 0.2
                 }}
                 transition={{ 
-                  duration: 0.8,
-                  ease: [0.34, 1.56, 0.64, 1]
+                  duration: 1.2,
+                  ease: [0.22, 1, 0.36, 1]
                 }}
                 className="rounded-lg overflow-hidden"
                 style={{
-                  padding: '2px', // Increased border width
+                  padding: '2px',
                   background: 'linear-gradient(45deg, #ed265d, #f15a2b)',
                 }}
               >
