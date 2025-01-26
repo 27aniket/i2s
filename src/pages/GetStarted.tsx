@@ -40,7 +40,7 @@ const GetStarted = () => {
             We are glad you're interested in reaching out. Send us an email at info@i2s.in, 
             and we'll get back to you promptly to assist with your inquiry.
           </p>
-          <div className="flex items-center justify-center space-x-4 p-6 bg-white/5 rounded-lg">
+          <div className="flex items-center justify-center space-x-4 p-6 bg-gray-900 rounded-lg">
             <span className="text-xl text-white">{email}</span>
             <TooltipProvider>
               <Tooltip>
