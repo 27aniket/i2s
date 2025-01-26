@@ -2,7 +2,6 @@ import { useEffect } from 'react';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { motion } from 'framer-motion';
-import { useIsMobile } from '@/hooks/use-mobile';
 
 interface CaseStudyData {
   title: string;
@@ -88,8 +87,6 @@ const caseStudies: CaseStudyData[] = [
 ];
 
 const CaseStudiesPage = () => {
-  const isMobile = useIsMobile();
-  
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -106,17 +103,18 @@ const CaseStudiesPage = () => {
             {caseStudies.map((study, index) => (
               <motion.div
                 key={index}
-                initial={isMobile ? { 
+                initial={{ 
                   opacity: 0,
                   y: 100
-                } : { opacity: 1, y: 0 }}
-                whileInView={isMobile ? { 
+                }}
+                whileInView={{ 
                   opacity: 1,
                   y: 0
-                } : undefined}
+                }}
                 viewport={{ 
                   once: true,
-                  margin: "-100px"
+                  margin: "-50px",
+                  amount: 0.2
                 }}
                 transition={{ 
                   duration: 1.2,
@@ -133,7 +131,7 @@ const CaseStudiesPage = () => {
                     <img 
                       src={study.image} 
                       alt={study.title}
-                      className="w-full h-full object-cover absolute inset-0"
+                      className="w-full h-full object-cover absolute top-0 left-0"
                     />
                   </div>
                   <div className="p-8 flex flex-col justify-center">
