@@ -53,7 +53,7 @@ const GetStarted = () => {
                     {copied ? (
                       <Check className="h-5 w-5 text-green-500" />
                     ) : (
-                      <Copy className="h-5 w-5 text-white/40" />
+                      <Copy className="h-5 w-5 text-white" />
                     )}
                   </button>
                 </TooltipTrigger>
