@@ -41,7 +41,7 @@ const GetStarted = () => {
             and we'll get back to you promptly to assist with your inquiry.
           </p>
           <div className="flex items-center justify-center space-x-4 p-6 bg-gray-700 rounded-lg">
-            <span className="text-xl text-gray-900">{email}</span>
+            <span className="text-xl text-white">{email}</span>
             <TooltipProvider>
               <Tooltip>
                 <TooltipTrigger asChild>
