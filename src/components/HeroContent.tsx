@@ -2,7 +2,7 @@ import { ArrowRight } from 'lucide-react';
 
 const HeroContent = () => {
   return (
-    <div className="space-y-24 md:mt-[25vh] mt-[10vh]">
+    <div className="space-y-24 md:mt-[25vh] mt-[2vh]">
       <div className="space-y-16">
         <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-white">
           <span className="bg-gradient-primary bg-clip-text text-transparent">Transforming Vision into Action</span>

@@ -33,6 +33,11 @@ const Navigation = () => {
     setIsOpen(false);
   };
 
+  const handleGetStartedClick = () => {
+    navigate('/get-started');
+    setIsOpen(false);
+  };
+
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-md">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -59,7 +64,7 @@ const Navigation = () => {
               <button onClick={() => scrollToSection('services')} className="nav-link">Services</button>
               <button onClick={() => scrollToSection('case-studies')} className="nav-link">Case Studies</button>
               <button onClick={handleAboutClick} className="nav-link">About</button>
-              <button onClick={() => scrollToSection('contact')} className="button-primary">
+              <button onClick={handleGetStartedClick} className="button-primary">
                 Get Started
               </button>
             </div>
@@ -73,7 +78,7 @@ const Navigation = () => {
           <button onClick={() => scrollToSection('services')} className="nav-link block px-3 py-2 w-full text-left">Services</button>
           <button onClick={() => scrollToSection('case-studies')} className="nav-link block px-3 py-2 w-full text-left">Case Studies</button>
           <button onClick={handleAboutClick} className="nav-link block px-3 py-2 w-full text-left">About</button>
-          <button onClick={() => scrollToSection('contact')} className="button-primary w-full mt-4">
+          <button onClick={handleGetStartedClick} className="button-primary w-full mt-4">
             Get Started
           </button>
         </div>
