@@ -9,7 +9,7 @@ const Hero = () => {
       <div className="section-container flex flex-col justify-center min-h-screen">
         <div className="text-center space-y-8 animate-fade-in">
           <HeroContent />
-          <div className="relative md:mt-[30vh] mt-[2vh]">
+          <div className="relative md:mt-[160] mt-[2vh]">
             <ScrollAnimatedText text={animatedText} />
           </div>
         </div>
