@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { motion } from 'framer-motion';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 interface CaseStudyData {
   title: string;
@@ -87,6 +88,8 @@ const caseStudies: CaseStudyData[] = [
 ];
 
 const CaseStudiesPage = () => {
+  const isMobile = useIsMobile();
+  
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -103,25 +106,25 @@ const CaseStudiesPage = () => {
             {caseStudies.map((study, index) => (
               <motion.div
                 key={index}
-                initial={{ 
+                initial={isMobile ? { 
                   opacity: 0,
-                  y: 50
-                }}
-                whileInView={{ 
+                  y: 100
+                } : { opacity: 1, y: 0 }}
+                whileInView={isMobile ? { 
                   opacity: 1,
                   y: 0
-                }}
+                } : undefined}
                 viewport={{ 
                   once: true,
                   margin: "-100px"
                 }}
                 transition={{ 
-                  duration: 0.8,
-                  ease: [0.34, 1.56, 0.64, 1]
+                  duration: 1.2,
+                  ease: [0.22, 1, 0.36, 1]
                 }}
                 className="rounded-lg overflow-hidden"
                 style={{
-                  padding: '2px', // Increased border width
+                  padding: '2px',
                   background: 'linear-gradient(45deg, #ed265d, #f15a2b)',
                 }}
               >
@@ -130,7 +133,7 @@ const CaseStudiesPage = () => {
                     <img 
                       src={study.image} 
                       alt={study.title}
-                      className="w-full h-full object-cover absolute top-0 left-0"
+                      className="w-full h-full object-cover absolute inset-0"
                     />
                   </div>
                   <div className="p-8 flex flex-col justify-center">

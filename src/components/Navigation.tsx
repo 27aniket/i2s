@@ -1,31 +1,16 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const isMobile = useIsMobile();
   const navigate = useNavigate();
-  const location = useLocation();
 
-  const scrollToSection = (sectionId: string) => {
-    if (location.pathname !== '/') {
-      navigate('/');
-      setTimeout(() => {
-        const element = document.getElementById(sectionId);
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth' });
-          setIsOpen(false);
-        }
-      }, 100);
-    } else {
-      const element = document.getElementById(sectionId);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-        setIsOpen(false);
-      }
-    }
+  const handleCaseStudiesClick = () => {
+    navigate('/case-studies');
+    setIsOpen(false);
   };
 
   const handleAboutClick = () => {
@@ -60,9 +45,9 @@ const Navigation = () => {
             </button>
           ) : (
             <div className="flex items-center space-x-8">
-              <button onClick={() => scrollToSection('industries')} className="nav-link">Industries</button>
-              <button onClick={() => scrollToSection('services')} className="nav-link">Services</button>
-              <button onClick={() => scrollToSection('case-studies')} className="nav-link">Case Studies</button>
+              <button onClick={() => navigate('/#industries')} className="nav-link">Industries</button>
+              <button onClick={() => navigate('/#services')} className="nav-link">Services</button>
+              <button onClick={handleCaseStudiesClick} className="nav-link">Case Studies</button>
               <button onClick={handleAboutClick} className="nav-link">About</button>
               <button onClick={handleGetStartedClick} className="button-primary">
                 Get Started
@@ -74,9 +59,9 @@ const Navigation = () => {
 
       {isMobile && isOpen && (
         <div className="px-2 pt-2 pb-3 space-y-1 bg-black/80 backdrop-blur-md">
-          <button onClick={() => scrollToSection('industries')} className="nav-link block px-3 py-2 w-full text-left">Industries</button>
-          <button onClick={() => scrollToSection('services')} className="nav-link block px-3 py-2 w-full text-left">Services</button>
-          <button onClick={() => scrollToSection('case-studies')} className="nav-link block px-3 py-2 w-full text-left">Case Studies</button>
+          <button onClick={() => navigate('/#industries')} className="nav-link block px-3 py-2 w-full text-left">Industries</button>
+          <button onClick={() => navigate('/#services')} className="nav-link block px-3 py-2 w-full text-left">Services</button>
+          <button onClick={handleCaseStudiesClick} className="nav-link block px-3 py-2 w-full text-left">Case Studies</button>
           <button onClick={handleAboutClick} className="nav-link block px-3 py-2 w-full text-left">About</button>
           <button onClick={handleGetStartedClick} className="button-primary w-full mt-4">
             Get Started

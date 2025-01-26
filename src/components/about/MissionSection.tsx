@@ -1,34 +1,49 @@
 import React from 'react';
+import { LightBulb, Brain, Users } from 'lucide-react';
 
 const MissionSection = () => {
+  const missions = [
+    {
+      icon: <LightBulb className="w-12 h-12 text-transparent bg-gradient-primary bg-clip-text" />,
+      title: "Empowering Communities Through Seamless Integration",
+      description: "We believe in connecting people, processes, and policies to create tailored solutions that truly empower communities and foster impactful governance. Together, we make systems work for the people they serve."
+    },
+    {
+      icon: <Brain className="w-12 h-12 text-transparent bg-gradient-primary bg-clip-text" />,
+      title: "Shaping a Smarter Tomorrow with AI",
+      description: "By embracing the power of AI and emerging technologies, we build adaptive, sustainable systems designed to improve lives today and shape a smarter, more inclusive tomorrow."
+    },
+    {
+      icon: <Users className="w-12 h-12 text-transparent bg-gradient-primary bg-clip-text" />,
+      title: "Citizen-Centric Innovation for Meaningful Change",
+      description: "Our commitment lies in creating solutions that put people first, aligning innovation with the aspirations and needs of citizens to drive meaningful and lasting change."
+    }
+  ];
+
   return (
-    <section className="mb-20 scroll-animate opacity-0 translate-y-4">
-      <h2 className="text-3xl md:text-4xl font-bold mb-8 bg-gradient-primary bg-clip-text text-transparent">
+    <section className="mb-20">
+      <h2 className="text-3xl md:text-4xl font-bold mb-12 bg-gradient-primary bg-clip-text text-transparent text-center">
         Our Mission
       </h2>
-      <ul className="space-y-6">
-        <li className="scroll-animate opacity-0 translate-y-4 flex items-start space-x-4">
-          <span className="w-2 h-2 mt-2 rounded-full bg-gradient-primary flex-shrink-0" />
-          <p className="text-lg text-gray-600 leading-relaxed">
-            To seamlessly integrate people, processes, and policies, delivering tailored solutions 
-            that empower communities and drive impactful governance.
-          </p>
-        </li>
-        <li className="scroll-animate opacity-0 translate-y-4 flex items-start space-x-4">
-          <span className="w-2 h-2 mt-2 rounded-full bg-gradient-primary flex-shrink-0" />
-          <p className="text-lg text-gray-600 leading-relaxed">
-            To harness the power of AI and emerging technologies to create adaptive and 
-            sustainable systems for a smarter tomorrow.
-          </p>
-        </li>
-        <li className="scroll-animate opacity-0 translate-y-4 flex items-start space-x-4">
-          <span className="w-2 h-2 mt-2 rounded-full bg-gradient-primary flex-shrink-0" />
-          <p className="text-lg text-gray-600 leading-relaxed">
-            To remain committed to stakeholder-centric innovation that aligns with the aspirations 
-            and needs of citizens.
-          </p>
-        </li>
-      </ul>
+      <div className="grid md:grid-cols-3 gap-8">
+        {missions.map((mission, index) => (
+          <div 
+            key={index}
+            className="flex flex-col items-center text-center space-y-4 p-6 animate-fade-in"
+            style={{ animationDelay: `${index * 200}ms` }}
+          >
+            <div className="mb-4">
+              {mission.icon}
+            </div>
+            <h3 className="text-xl font-bold bg-gradient-primary bg-clip-text text-transparent">
+              {mission.title}
+            </h3>
+            <p className="text-gray-600">
+              {mission.description}
+            </p>
+          </div>
+        ))}
+      </div>
     </section>
   );
 };
