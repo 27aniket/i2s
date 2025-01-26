@@ -47,7 +47,7 @@ const GetStarted = () => {
                 <TooltipTrigger asChild>
                   <button
                     onClick={copyToClipboard}
-                    className="p-2 hover:bg-white rounded-md transition-colors"
+                    className="p-2 hover:bg-white/4 rounded-md transition-colors"
                     aria-label="Copy email address"
                   >
                     {copied ? (
