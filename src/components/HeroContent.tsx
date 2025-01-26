@@ -1,6 +1,20 @@
 import { ArrowRight } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const HeroContent = () => {
+  const navigate = useNavigate();
+
+  const handleGetStarted = () => {
+    navigate('/get-started');
+  };
+
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <div className="space-y-24 md:mt-[25vh] mt-[2vh]">
       <div className="space-y-16">
@@ -12,11 +26,11 @@ const HeroContent = () => {
         </p>
       </div>
       <div className="flex items-center justify-center space-x-4">
-        <button onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })} className="button-primary">
+        <button onClick={handleGetStarted} className="button-primary">
           Get Started
           <ArrowRight className="ml-2 h-4 w-4" />
         </button>
-        <button onClick={() => document.getElementById('case-studies')?.scrollIntoView({ behavior: 'smooth' })} className="button-secondary">
+        <button onClick={() => scrollToSection('case-studies')} className="button-secondary">
           View Our Work
         </button>
       </div>

@@ -29,31 +29,31 @@ const GetStarted = () => {
   };
 
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen bg-white">
       <Navigation />
       <main className="section-container pt-32 animate-fade-in">
         <div className="max-w-3xl mx-auto text-center space-y-8">
           <h1 className="section-title bg-gradient-primary bg-clip-text text-transparent">
             Let's Connect
           </h1>
-          <p className="section-subtitle">
+          <p className="text-xl text-gray-600">
             We are glad you're interested in reaching out. Send us an email at info@i2s.in, 
             and we'll get back to you promptly to assist with your inquiry.
           </p>
-          <div className="flex items-center justify-center space-x-4 p-6 bg-white/5 rounded-lg">
-            <span className="text-xl text-white">{email}</span>
+          <div className="flex items-center justify-center space-x-4 p-6 bg-gray-50 rounded-lg">
+            <span className="text-xl text-gray-900">{email}</span>
             <TooltipProvider>
               <Tooltip>
                 <TooltipTrigger asChild>
                   <button
                     onClick={copyToClipboard}
-                    className="p-2 hover:bg-white/10 rounded-md transition-colors"
+                    className="p-2 hover:bg-gray-100 rounded-md transition-colors"
                     aria-label="Copy email address"
                   >
                     {copied ? (
                       <Check className="h-5 w-5 text-green-500" />
                     ) : (
-                      <Copy className="h-5 w-5 text-white" />
+                      <Copy className="h-5 w-5 text-gray-600" />
                     )}
                   </button>
                 </TooltipTrigger>
