@@ -111,19 +111,28 @@ const CaseStudiesPage = () => {
                   opacity: 1, 
                   x: 0 
                 }}
-                viewport={{ once: true }}
+                viewport={{ 
+                  once: true,
+                  margin: "-100px"
+                }}
                 transition={{ 
                   duration: 0.8,
-                  ease: "easeOut"
+                  ease: [0.4, 0, 0.2, 1]
                 }}
-                className="bg-white rounded-lg shadow-xl overflow-hidden"
+                className="bg-white rounded-lg overflow-hidden"
+                style={{
+                  background: 'linear-gradient(to right, transparent, transparent) padding-box, linear-gradient(45deg, #ed265d, #f15a2b) border-box',
+                  border: '2px solid transparent',
+                  boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)'
+                }}
               >
-                <div className={`grid md:grid-cols-2 gap-8 ${index % 2 === 0 ? '' : 'md:grid-flow-dense'}`}>
-                  <div className="h-[400px]">
+                <div className={`grid md:grid-cols-2 ${index % 2 === 0 ? '' : 'md:grid-flow-dense'}`}>
+                  <div className="h-full">
                     <img 
                       src={study.image} 
                       alt={study.title}
                       className="w-full h-full object-cover"
+                      style={{ minHeight: '600px' }}
                     />
                   </div>
                   <div className="p-8 flex flex-col justify-center">
