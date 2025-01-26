@@ -1,10 +1,10 @@
 import React from 'react';
-import { LightBulb, Brain, Users } from 'lucide-react';
+import { Lightbulb, Brain, Users } from 'lucide-react';
 
 const MissionSection = () => {
   const missions = [
     {
-      icon: <LightBulb className="w-12 h-12 text-transparent bg-gradient-primary bg-clip-text" />,
+      icon: <Lightbulb className="w-12 h-12 text-transparent bg-gradient-primary bg-clip-text" />,
       title: "Empowering Communities Through Seamless Integration",
       description: "We believe in connecting people, processes, and policies to create tailored solutions that truly empower communities and foster impactful governance. Together, we make systems work for the people they serve."
     },
