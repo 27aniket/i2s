@@ -8,13 +8,6 @@ const HeroContent = () => {
     navigate('/get-started');
   };
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
     <div className="space-y-24 md:mt-[25vh] mt-[2vh]">
       <div className="space-y-16">
@@ -30,7 +23,7 @@ const HeroContent = () => {
           Get Started
           <ArrowRight className="ml-2 h-4 w-4" />
         </button>
-        <button onClick={() => scrollToSection('case-studies')} className="button-secondary">
+        <button onClick={() => navigate('/case-studies')} className="button-secondary">
           View Our Work
         </button>
       </div>
