@@ -105,7 +105,7 @@ const CaseStudiesPage = () => {
                 key={index}
                 initial={{ 
                   opacity: 0, 
-                  x: index % 2 === 0 ? -100 : 100 
+                  x: index % 2 === 0 ? -50 : 50 
                 }}
                 whileInView={{ 
                   opacity: 1, 
@@ -113,20 +113,19 @@ const CaseStudiesPage = () => {
                 }}
                 viewport={{ 
                   once: true,
-                  margin: "-100px"
+                  margin: "-150px"
                 }}
                 transition={{ 
                   duration: 0.8,
-                  ease: [0.4, 0, 0.2, 1]
+                  ease: [0.34, 1.56, 0.64, 1]
                 }}
-                className="bg-white rounded-lg overflow-hidden"
+                className="rounded-lg overflow-hidden"
                 style={{
-                  background: 'linear-gradient(to right, transparent, transparent) padding-box, linear-gradient(45deg, #ed265d, #f15a2b) border-box',
-                  border: '2px solid transparent',
-                  boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)'
+                  padding: '1px',
+                  background: 'linear-gradient(45deg, #ed265d, #f15a2b)',
                 }}
               >
-                <div className={`grid md:grid-cols-2 ${index % 2 === 0 ? '' : 'md:grid-flow-dense'}`}>
+                <div className={`grid md:grid-cols-2 ${index % 2 === 0 ? '' : 'md:grid-flow-dense'} bg-white rounded-lg`}>
                   <div className="h-full">
                     <img 
                       src={study.image} 
