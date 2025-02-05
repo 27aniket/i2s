@@ -47,7 +47,7 @@ const Navigation = () => {
               <span className="text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent hover:scale-105 transition-transform">
                 I2S
               </span>
-              <div className="flex gap-1 mt-[0.1px]">
+              <div className="flex gap-1 mt-[-2px]">
                 <div 
                   className="h-[4px] bg-gradient-to-r from-[#ed265d] to-[#f15a2b] rounded"
                   style={{ width: '5px', marginLeft: '1px', opacity: 0.9 }}
