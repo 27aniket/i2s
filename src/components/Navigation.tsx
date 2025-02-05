@@ -47,17 +47,17 @@ const Navigation = () => {
               <span className="text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent hover:scale-105 transition-transform">
                 I2S
               </span>
-              <div className="flex gap-1 mt-0.5">
+              <div className="flex gap-1 mt-0.25">
                 <div 
-                  className="h-[4px] bg-gradient-to-r from-[#ed265d] to-[#f15a2b] rounded-full"
+                  className="h-[4px] bg-gradient-to-r from-[#ed265d] to-[#f15a2b]"
                   style={{ width: '5px', marginLeft: '1px', opacity: 0.9 }}
                 />
                 <div 
-                  className="h-[4px] bg-gradient-to-r from-[#ed265d] to-[#f15a2b] rounded-full"
+                  className="h-[4px] bg-gradient-to-r from-[#ed265d] to-[#f15a2b]"
                   style={{ width: '8px', opacity: 0.9 }}
                 />
                 <div 
-                  className="h-[4px] bg-gradient-to-r from-[#ed265d] to-[#f15a2b] rounded-full"
+                  className="h-[4px] bg-gradient-to-r from-[#ed265d] to-[#f15a2b]"
                   style={{ width: '13px', opacity: 0.9 }}
                 />
               </div>
