@@ -49,14 +49,14 @@ const Navigation = () => {
               </span>
               <div className="flex gap-0.5 mt-0.5">
                 <div 
-                  className="h-[2px] w-[20%] bg-gradient-primary rounded-full"
+                  className="h-[2px] w-[20%] bg-gradient-to-r from-[#ed265d] to-[#f15a2b] rounded-full"
                   style={{ marginLeft: '1px' }}
                 />
                 <div 
-                  className="h-[2px] w-[30%] bg-gradient-primary rounded-full"
+                  className="h-[2px] w-[30%] bg-gradient-to-r from-[#ed265d] to-[#f15a2b] rounded-full"
                 />
                 <div 
-                  className="h-[2px] w-[50%] bg-gradient-primary rounded-full"
+                  className="h-[2px] w-[50%] bg-gradient-to-r from-[#ed265d] to-[#f15a2b] rounded-full"
                 />
               </div>
             </div>
