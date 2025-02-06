@@ -53,7 +53,7 @@ const Navigation = () => {
                   {[...Array(8)].map((_, i) => (
                     <div
                       key={i}
-                      className="absolute w-[2px] h-[2px] rounded-full bg-gradient-to-r from-[#ed265d] to-[#f15a2b]"
+                      className="absolute w-[1px] h-[1px] rounded-full bg-gradient-to-r from-[#ed265d] to-[#f15a2b]"
                       style={{
                         left: `${Math.random() * 14}px`,
                         top: `${Math.random() * 4}px`,
