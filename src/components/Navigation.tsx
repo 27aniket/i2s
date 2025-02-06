@@ -50,13 +50,17 @@ const Navigation = () => {
               <div className="flex gap-1 mt-[1px]">
                 {/* Particle trail */}
                 <div className="relative" style={{ width: '14px', height: '4px' }}>
-                  {[...Array(8)].map((_, i) => (
+                  {[...Array(15)].map((_, i) => (
                     <div
                       key={i}
                       className="absolute w-[1px] h-[1px] rounded-full bg-gradient-to-r from-[#ed265d] to-[#f15a2b]"
                       style={{
-                        left: `${Math.random() * 14}px`,
-                        top: `${Math.random() * 4}px`,
+                        left: i < 5 || i > 10 
+                          ? `${(i * 14) / 15}px` // More aligned at edges
+                          : `${(i * 14) / 15 + (Math.random() * 2 - 1)}px`, // More random in center
+                        top: i < 5 || i > 10
+                          ? '1.5px' // Centered at edges
+                          : `${1 + Math.random() * 2}px`, // More random in center
                         opacity: 0.9
                       }}
                     />
