@@ -47,15 +47,28 @@ const Navigation = () => {
               <span className="text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent hover:scale-105 transition-transform">
                 I2S
               </span>
-              <div className="flex gap-1 mt-[-2.1px]">
-                <div 
-                  className="h-[4px] bg-gradient-to-r from-[#ed265d] to-[#f15a2b] rounded"
-                  style={{ width: '5px', marginLeft: '1px', opacity: 0.9 }}
-                />
-                <div 
-                  className="h-[4px] bg-gradient-to-r from-[#ed265d] to-[#f15a2b] rounded"
-                  style={{ width: '8px', opacity: 0.9 }}
-                />
+              <div className="flex gap-1 mt-[1px]">
+                {/* First line - dots */}
+                <div className="flex gap-[1px] ml-[1px]" style={{ width: '5px', height: '4px' }}>
+                  {[...Array(2)].map((_, i) => (
+                    <div
+                      key={i}
+                      className="w-[2px] h-[2px] rounded-full bg-gradient-to-r from-[#ed265d] to-[#f15a2b]"
+                      style={{ opacity: 0.9 }}
+                    />
+                  ))}
+                </div>
+                {/* Second line - dots */}
+                <div className="flex gap-[1px]" style={{ width: '8px', height: '4px' }}>
+                  {[...Array(3)].map((_, i) => (
+                    <div
+                      key={i}
+                      className="w-[2px] h-[2px] rounded-full bg-gradient-to-r from-[#ed265d] to-[#f15a2b]"
+                      style={{ opacity: 0.9 }}
+                    />
+                  ))}
+                </div>
+                {/* Third line - solid */}
                 <div 
                   className="h-[4px] bg-gradient-to-r from-[#ed265d] to-[#f15a2b] rounded"
                   style={{ width: '13px', opacity: 0.9 }}
