@@ -53,14 +53,14 @@ const Navigation = () => {
                   {[...Array(15)].map((_, i) => (
                     <div
                       key={i}
-                      className="absolute w-[1px] h-[1px] rounded-full bg-gradient-to-r from-[#ed265d] to-[#f15a2b]"
+                      className="absolute w-[2px] h-[2px] rounded-full bg-gradient-to-r from-[#ed265d] to-[#f15a2b]"
                       style={{
                         left: i < 5 || i > 10 
                           ? `${(i * 14) / 15}px` // More aligned at edges
-                          : `${(i * 14) / 15 + (Math.random() * 2 - 1)}px`, // More random in center
+                          : `${(i * 14) / 15 + (Math.random() * 1.5 - 0.75)}px`, // Less random in center
                         top: i < 5 || i > 10
-                          ? '1.5px' // Centered at edges
-                          : `${1 + Math.random() * 2}px`, // More random in center
+                          ? '1px' // Centered at edges
+                          : `${1 + Math.random()}px`, // Less random in center
                         opacity: 0.9
                       }}
                     />
