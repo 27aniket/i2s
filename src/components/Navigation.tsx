@@ -47,26 +47,15 @@ const Navigation = () => {
               <span className="text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent hover:scale-105 transition-transform">
                 I2S
               </span>
-              <div className="flex gap-1 mt-[1px]">
-                {/* Particle trail */}
-                <div className="relative" style={{ width: '14px', height: '4px' }}>
-                  {[...Array(15)].map((_, i) => (
-                    <div
-                      key={i}
-                      className="absolute w-[2px] h-[2px] rounded-full bg-gradient-to-r from-[#ed265d] to-[#f15a2b]"
-                      style={{
-                        left: i < 5 || i > 10 
-                          ? `${(i * 14) / 15}px` // More aligned at edges
-                          : `${(i * 14) / 15 + (Math.random() * 1.5 - 0.75)}px`, // Less random in center
-                        top: i < 5 || i > 10
-                          ? '1px' // Centered at edges
-                          : `${1 + Math.random()}px`, // Less random in center
-                        opacity: 0.9
-                      }}
-                    />
-                  ))}
-                </div>
-                {/* Solid line (rocket) */}
+              <div className="flex gap-1 mt-[-2.1px]">
+                <div 
+                  className="h-[4px] bg-gradient-to-r from-[#ed265d] to-[#f15a2b] rounded"
+                  style={{ width: '5px', marginLeft: '1px', opacity: 0.9 }}
+                />
+                <div 
+                  className="h-[4px] bg-gradient-to-r from-[#ed265d] to-[#f15a2b] rounded"
+                  style={{ width: '8px', opacity: 0.9 }}
+                />
                 <div 
                   className="h-[4px] bg-gradient-to-r from-[#ed265d] to-[#f15a2b] rounded"
                   style={{ width: '13px', opacity: 0.9 }}
