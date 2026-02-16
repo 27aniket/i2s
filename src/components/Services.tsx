@@ -41,7 +41,7 @@ const services = [
     title: "Integrated communities",
     description:
       "Integrated GIS and town planning solutions enabling sustainable, data-driven, and regulation-aligned infrastructure development for long-term urban resilience and growth.",
-    image: "photo-1553877522-43269d4ea984",
+    image: "photo-1477959858617-67f85cf4f1df",
   },
 ];
 
