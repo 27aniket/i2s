@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { motion } from 'framer-motion';
+import Img1 from "@/assests/csImag1.png"
 
 interface CaseStudyData {
   title: string;
@@ -72,6 +73,21 @@ const caseStudies: CaseStudyData[] = [
     ],
     image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c"
   },
+
+  {
+  title: "Interactive Election Data Visualization Platform",
+  client: "A data analytics initiative focused on political leadership insights and election performance.",
+  challenge: "The client required a centralized system to visualize large-scale election data while allowing users to dynamically filter results by state and district. Manual analysis was time-consuming and lacked interactivity.",
+  solution: "Developed a data-driven web application featuring interactive visualizations for leadership insights and election performance. Implemented a REST API integrated with MongoDB to enable seamless data retrieval based on user-defined filters. The platform provides real-time updates through efficient API endpoints returning structured JSON data to the frontend.",
+  impact: [
+    "Enabled dynamic filtering by state and district through an intuitive interface",
+    "Improved accessibility to election insights with real-time data visualization",
+    "Streamlined data retrieval using REST APIs and MongoDB integration",
+    "Enhanced decision-making through interactive leadership and performance dashboards"
+  ],
+  image: Img1
+
+},
   {
     title: "QR Code-Based Public Asset Management in India",
     client: "A regional governance body in India focused on efficient asset tracking and management.",
