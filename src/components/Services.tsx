@@ -57,16 +57,16 @@ const Services = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-[912.6px] mx-auto mt-12">
         {services.map((service) => (
-          // <Card
-          //   key={service.title}
-          //   className="group relative overflow-hidden border-white/10 hover:border-[#f15a2b] bg-black/50 hover:bg-white transition-all duration-300 rounded-none aspect-[3/4]"
-          // >
           <Card
             key={service.title}
-            className={`group relative overflow-hidden border-white/10 hover:border-[#f15a2b] bg-black/50 hover:bg-white transition-all duration-300 rounded-none aspect-[3/4]
-    ${service.title === "Integrated communities" ? "lg:col-start-2" : ""}
-  `}
+            className="group relative overflow-hidden border-white/10 hover:border-[#f15a2b] bg-black/50 hover:bg-white transition-all duration-300 rounded-none aspect-[3/4]"
           >
+  {/* //         <Card
+  //           key={service.title}
+  //           className={`group relative overflow-hidden border-white/10 hover:border-[#f15a2b] bg-black/50 hover:bg-white transition-all duration-300 rounded-none aspect-[3/4]
+  //   ${service.title === "Integrated communities" ? "lg:col-start-2" : ""}
+  // `}
+  //         > */}
             <CardContent className="p-0 h-full">
               <div className="absolute inset-0 z-10 transition-transform duration-500 group-hover:-translate-y-full">
                 <img
