@@ -13,30 +13,30 @@ interface CaseStudyData {
 }
 
 const caseStudies: CaseStudyData[] = [
-  {
-    title: "Empowering a Digital Bank in Saudi Arabia",
-    client: "A leading financial institution in the Middle East aiming to redefine digital banking.",
-    challenge: "The client wanted to create Saudi Arabia's first fully digital bank, addressing challenges such as regulatory compliance, secure real-time transactions, and reducing account onboarding times.",
-    solution: "Developed a secure and scalable digital platform, implemented automated workflows for onboarding, and designed real-time payment systems tailored to local regulations.",
-    impact: [
-      "Reduced onboarding time by 80%",
-      "Achieved seamless real-time payment processing",
-      "Established a benchmark for digital banking in the region"
-    ],
-    image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085"
-  },
-  {
-    title: "Optimizing Trading Platforms",
-    client: "A globally recognized asset management firm known for its innovative trading strategies.",
-    challenge: "The client needed to improve the performance of their trading platform, reducing latency and optimizing strategy execution for high transaction volumes.",
-    solution: "Designed a distributed caching mechanism, implemented genetic algorithms with parallel processing, and developed real-time computation pipelines for backtesting metrics.",
-    impact: [
-      "Reduced trading latency by 40%",
-      "Improved platform scalability, handling 2x transaction volume",
-      "Enabled faster decision-making through real-time analytics"
-    ],
-    image: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7"
-  },
+  // {
+  //   title: "Empowering a Digital Bank in Saudi Arabia",
+  //   client: "A leading financial institution in the Middle East aiming to redefine digital banking.",
+  //   challenge: "The client wanted to create Saudi Arabia's first fully digital bank, addressing challenges such as regulatory compliance, secure real-time transactions, and reducing account onboarding times.",
+  //   solution: "Developed a secure and scalable digital platform, implemented automated workflows for onboarding, and designed real-time payment systems tailored to local regulations.",
+  //   impact: [
+  //     "Reduced onboarding time by 80%",
+  //     "Achieved seamless real-time payment processing",
+  //     "Established a benchmark for digital banking in the region"
+  //   ],
+  //   image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085"
+  // },
+  // {
+  //   title: "Optimizing Trading Platforms",
+  //   client: "A globally recognized asset management firm known for its innovative trading strategies.",
+  //   challenge: "The client needed to improve the performance of their trading platform, reducing latency and optimizing strategy execution for high transaction volumes.",
+  //   solution: "Designed a distributed caching mechanism, implemented genetic algorithms with parallel processing, and developed real-time computation pipelines for backtesting metrics.",
+  //   impact: [
+  //     "Reduced trading latency by 40%",
+  //     "Improved platform scalability, handling 2x transaction volume",
+  //     "Enabled faster decision-making through real-time analytics"
+  //   ],
+  //   image: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7"
+  // },
   {
     title: "Enhancing Program Efficiency for a UK-Based Insurer",
     client: "A prominent insurance provider in the UK focused on operational transformation.",
