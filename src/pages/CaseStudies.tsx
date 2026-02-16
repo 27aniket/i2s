@@ -3,6 +3,7 @@ import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { motion } from 'framer-motion';
 import Img1 from "@/assests/csImag1.png"
+import Img2 from "@/assests/csImg2.png"
 
 interface CaseStudyData {
   title: string;
@@ -87,6 +88,19 @@ const caseStudies: CaseStudyData[] = [
   ],
   image: Img1
 
+},
+{
+  title: "Women Empowerment & Digital Skills Training Workshop",
+  client: "A community-focused initiative aimed at empowering women through practical digital and professional skills.",
+  challenge: "The objective was to provide women with hands-on technical and career-oriented training while building confidence and improving employability in a rapidly evolving digital landscape.",
+  solution: "Conducted an interactive workshop covering basic digital literacy, technology awareness, and career guidance. Designed practical sessions to help participants understand real-world applications and encouraged active participation through exercises and discussions.",
+  impact: [
+    "Trained women with essential digital and professional skills",
+    "Improved confidence and awareness about career opportunities in technology",
+    "Encouraged participation in skill development programs",
+    "Created a supportive learning environment for women"
+  ],
+  image: Img2
 },
   {
     title: "QR Code-Based Public Asset Management in India",
