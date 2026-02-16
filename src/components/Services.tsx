@@ -8,6 +8,18 @@ const services = [
     image: "photo-1460925895917-afdab827c52f",
   },
   {
+    title: "Artificial Intelligence",
+    description:
+      "Empowering businesses with AI-driven solutions to automate processes, enhance decision-making, and unlock new opportunities. Our expertise spans machine learning, natural language processing, and computer vision, tailored to solve real-world problems across industries.",
+    image: "photo-1677442136019-21780ecad995",
+  },
+  {
+    title: "Integrated communities",
+    description:
+      "Integrated GIS and town planning solutions enabling sustainable, data-driven, and regulation-aligned infrastructure development for long-term urban resilience and growth.",
+    image: "photo-1477959858617-67f85cf4f1df",
+  },
+  {
     title: "Product Discovery",
     description:
       "Our Product Discovery service helps businesses validate ideas, understand user needs, and define the right features for a successful product launch. We conduct market research, competitor analysis, and user interviews to ensure your product aligns with customer expectations and business goals.",
@@ -19,12 +31,7 @@ const services = [
       "We specialize in end-to-end product development, turning your ideas into robust, scalable, and user-friendly solutions. Leveraging agile methodologies, we ensure rapid delivery without compromising quality, keeping your business goals at the forefront.",
     image: "photo-1522071901873-411886a10004",
   },
-  {
-    title: "Artificial Intelligence",
-    description:
-      "Empowering businesses with AI-driven solutions to automate processes, enhance decision-making, and unlock new opportunities. Our expertise spans machine learning, natural language processing, and computer vision, tailored to solve real-world problems across industries.",
-    image: "photo-1677442136019-21780ecad995",
-  },
+
   {
     title: "Product Management",
     description:
@@ -36,12 +43,6 @@ const services = [
     description:
       "Scale your team with top talent and fill critical skill gaps quickly through our staff augmentation services. Whether you need developers, designers, or project managers, we provide skilled professionals who integrate seamlessly with your team and processes.",
     image: "photo-1553877522-43269d4ea984",
-  },
-  {
-    title: "Integrated communities",
-    description:
-      "Integrated GIS and town planning solutions enabling sustainable, data-driven, and regulation-aligned infrastructure development for long-term urban resilience and growth.",
-    image: "photo-1477959858617-67f85cf4f1df",
   },
 ];
 
